@@ -1,0 +1,24 @@
+interactive: false
+
+pomodoro:
+  enabled: true
+  work_minutes: 50
+  break_minutes: 10
+
+budget_spread:
+  enabled: true
+  threshold_h: 2
+  rounding: 0.5
+
+calendar_ids: []
+
+news:
+  enabled: false
+  feeds: []
+
+video:
+  enabled: false
+  directories: []
+  extensions: [.mp4, .mov, .mkv]
+
+mandatory_daily_wps: []
