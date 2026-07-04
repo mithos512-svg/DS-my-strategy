@@ -1,21 +1,15 @@
 
+
 ---
 
-## Day Open — чек-лист (обновлено 2026-07-04)
-
-Стандартные шаги при открытии дня:
-1. Проверить день недели → добавить спорт по расписанию (йога пн/чт/сб, спортзал вт/пт/вс)
-2. Проверить inbox — есть ли необработанные заметки
-3. Собрать DayPlan → current/DayPlan {дата}.md
-4. **Поставить Telegram-напоминание на сегодня 22:00** через IWE:send_telegram_message
-   — текст: "Время Day Close — открой чат с Claude и закрой день"
-
-## Day Close — чек-лист (обновлено 2026-07-04)
+## Day Close — чек-лист (обновлено 2026-07-04, v2)
 
 Стандартные шаги при закрытии дня:
 1. Итоги дня — что выполнено/перенесено
 2. Обновить DayPlan → archive/day-plans/
-3. **Поставить Telegram-напоминание на завтра 9:00** через IWE:send_telegram_message
+3. **Форсировать reindex** через IWE:personal_reindex(source="DS-my-strategy") — чтобы
+   personal_get_document/personal_memory_search видели свежие файлы к завтрашнему дню
+4. Поставить Telegram-напоминание на завтра 9:00 через IWE:send_telegram_message
    (recurring-команды в @aist_me_bot нет, ставим вручную каждый раз)
-4. Если завтра воскресенье — включить в напоминание Week Close + Strategy Session
+5. Если завтра воскресенье — включить в напоминание Week Close + Strategy Session
 
