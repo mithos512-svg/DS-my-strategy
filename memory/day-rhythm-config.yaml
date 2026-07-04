@@ -2,21 +2,13 @@
 
 ---
 
-## Day Close — чек-лист (обновлено 2026-07-04, v3)
+## Nutrition tracking — протокол (добавлено 2026-07-04)
 
-Стандартные шаги при закрытии дня:
-1. Итоги дня — что выполнено/перенесено
-2. Обновить DayPlan → archive/day-plans/
-3. **Append learning-journal дня в общий архив** — взять today's `current/learning-journal/YYYY-MM-DD.md`
-   и дописать его в конец `current/learning-journal.md` (общий архив для целостного обзора недели/месяца)
-4. Форсировать reindex через IWE:personal_reindex(source="DS-my-strategy")
-5. Поставить Telegram-напоминание на завтра 9:00 через IWE:send_telegram_message
-   (recurring-команды в @aist_me_bot нет, ставим вручную каждый раз)
-6. Если завтра воскресенье — включить в напоминание Week Close + Strategy Session
+**Статус:** экспериментальная фича, тестируется.
 
-**Логика хранения learning-journal (с 2026-07-04):**
-- `current/learning-journal/YYYY-MM-DD.md` — файл дня, создаётся при записи заметок в течение дня,
-  всегда маленький → читается полностью без риска чанк-обрезки
-- `current/learning-journal.md` — общий архив, пополняется на Day Close добавлением файла дня
-  в конец → даёт целостный обзор истории, но не используется для read-modify-write в течение дня
+Правило: фото еды = съеденная порция, если пользователь явно не уточнил обратное
+(например "это было на двоих" или "съел половину").
+
+Хранение: current/nutrition-log/YYYY-MM-DD.md (split by day, как learning-journal).
+На Day Close — опционально суммировать в DayPlan итоги, если польза подтвердится после теста.
 
