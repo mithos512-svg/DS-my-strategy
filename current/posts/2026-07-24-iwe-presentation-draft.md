@@ -3,6 +3,14 @@
 
 ---
 
+## Слайд 0 - Представление
+- **Дмитрий Малейкович**
+- Director Enterprise Governance Capabilities, Mondelez International
+- Стаж 20 лет
+- ШСМ/МИМ с 2022
+
+---
+
 ## Слайд 1 - Титул
 - **IWE (Individual Working Environment)** - личная система саморазвития
 - Построена за 2.5 недели поверх GitHub + Claude
