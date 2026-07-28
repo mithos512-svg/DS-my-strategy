@@ -32,7 +32,9 @@ def process_file(raw_path: pathlib.Path) -> None:
     score = None
     if total_min > 0:
         weighted = deep_min * 2 + rem_min * 1.5 + core_min * 1
-        score = round(weighted / total_min * 100)
+        # Normalize against the max possible weighted value (all minutes = Deep, weight 2)
+        # so the score is properly bounded 0-100: Core-only -> 50, REM-only -> 75, Deep-only -> 100
+        score = round(weighted / (total_min * 2) * 100)
 
     hours, minutes = divmod(total_min, 60)
 
