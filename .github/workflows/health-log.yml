@@ -1,0 +1,22 @@
+name: Process health log
+on:
+  push:
+    paths:
+      - 'current/health-log/raw/**.md'
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Process sleep data
+        run: python3 scripts/process_health_log.py
+      - name: Commit processed file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add current/health-log/*.md
+          git diff --cached --quiet || git commit -m "Auto-process health log [skip ci]"
+          git push
