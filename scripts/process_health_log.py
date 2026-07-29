@@ -4,10 +4,27 @@ import pathlib
 RAW_DIR = pathlib.Path("current/health-log/raw")
 OUT_DIR = pathlib.Path("current/health-log")
 
+# Целевые диапазоны фаз сна (% от общего сна), по научной литературе:
+# Deep (N3): 13-23% (Sleep Foundation / Medscape), центр ~18%
+# REM: 20-25% (стандартный диапазон для взрослых), центр ~22.5%
+# Целевая длительность сна: 7ч = 420 мин
+DEEP_TARGET_CENTER = 18.0
+DEEP_TARGET_RANGE = 5.0  # 13-23% -> +/-5 от центра 18
+REM_TARGET_CENTER = 22.5
+REM_TARGET_RANGE = 2.5  # 20-25% -> +/-2.5 от центра 22.5
+DURATION_TARGET_MIN = 420  # 7 часов
+
 
 def parse_num(s: str) -> float:
     """Handle both comma and dot as decimal separator (device locale may use comma)."""
     return float(s.replace(",", "."))
+
+
+def closeness_score(actual: float, center: float, half_range: float) -> float:
+    """100 если actual == center, линейно падает до 0 на расстоянии >= half_range*2
+    (т.е. штрафуем и за недобор, и за перебор относительно целевого диапазона)."""
+    deviation = abs(actual - center)
+    return max(0.0, 100.0 - (deviation / (half_range * 2)) * 100.0)
 
 
 def process_file(raw_path: pathlib.Path) -> None:
@@ -30,11 +47,16 @@ def process_file(raw_path: pathlib.Path) -> None:
     total_min = core_min + deep_min + rem_min
 
     score = None
+    deep_pct = rem_pct = None
     if total_min > 0:
-        weighted = deep_min * 2 + rem_min * 1.5 + core_min * 1
-        # Normalize against the max possible weighted value (all minutes = Deep, weight 2)
-        # so the score is properly bounded 0-100: Core-only -> 50, REM-only -> 75, Deep-only -> 100
-        score = round(weighted / (total_min * 2) * 100)
+        deep_pct = deep_min / total_min * 100
+        rem_pct = rem_min / total_min * 100
+
+        deep_score = closeness_score(deep_pct, DEEP_TARGET_CENTER, DEEP_TARGET_RANGE)
+        rem_score = closeness_score(rem_pct, REM_TARGET_CENTER, REM_TARGET_RANGE)
+        duration_score = min(total_min / DURATION_TARGET_MIN, 1.0) * 100.0
+
+        score = round((deep_score + rem_score + duration_score) / 3)
 
     hours, minutes = divmod(total_min, 60)
 
@@ -48,7 +70,12 @@ def process_file(raw_path: pathlib.Path) -> None:
         f"(Core {core_min} мин, Deep {deep_min} мин, REM {rem_min} мин)"
     )
     if score is not None:
-        lines.append(f"Sleep score (эвристика Deep×2 + REM×1.5 + Core×1): {score}/100")
+        lines.append(
+            f"Sleep score ({score}/100): среднее из трёх компонент - "
+            f"близость доли Deep к норме 13-23% (сейчас {deep_pct:.0f}%), "
+            f"близость доли REM к норме 20-25% (сейчас {rem_pct:.0f}%), "
+            f"длительность сна к цели 7ч"
+        )
 
     out_path = OUT_DIR / f"{date_str}.md"
     out_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
