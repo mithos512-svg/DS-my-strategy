@@ -1,2 +1,0 @@
-# test write access
-ok
