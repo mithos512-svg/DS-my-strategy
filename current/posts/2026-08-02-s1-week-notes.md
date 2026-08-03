@@ -1,10 +1,10 @@
 ---
 type: post
-published: false
+published: true
 platform: МИМ клуб (systemsworld.club)
 created: 2026-08-02
-published_at:
-status: черновик
+published_at: 2026-08-03
+status: опубликован
 ---
 
 # Системное саморазвитие: от принципа оптимизма до шкуры на кону
