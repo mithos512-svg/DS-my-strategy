@@ -52,4 +52,22 @@ being shredded in exec review.
 
 ### 2026-08-10 — session 1
 
-(to be filled as we work through steps 1-2 for the real Mondelez situation)
+**Step 1 — C.11 framing:**
+
+- `DecisionSubject`: leadership (org-level) — user's role is not the chooser,
+  but the case-builder feeding leadership's C.11 process. "Done" for this
+  work = a comparison basis leadership can trust, not a `ChoiceResult` itself.
+- Context: DQ platform is already purchased (not build-vs-buy). Partial
+  tooling already exists. Question in front of leadership is enterprise-wide
+  extension across many domains.
+- `OptionSet` (frozen, confirmed by user):
+
+  | Option | Description |
+  |---|---|
+  | A — Status quo | Keep current partial tooling, no further extension |
+  | B — Full enterprise-wide rollout | Extend across all domains now |
+  | C — Phased rollout | Start with highest-pain domains, expand on evidence |
+  | D — Targeted extension | Only extend into domains with a clear, already-visible problem |
+
+Next: Step 2 — C.28 causal triage on the benefit claims already floated for
+extension (rung + support basis + supported/unsupported use, one line each).
