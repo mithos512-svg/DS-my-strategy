@@ -87,13 +87,27 @@ None of the four claims clear even `observationalAssociationSupportBasis` —
 anecdote without systematic observation is `missing` support basis in C.28
 terms.
 
-**Implication for step 4 (preview):** this evidence picture makes Option B
-(full rollout) the hardest to honestly defend to leadership right now — no
-measured support for any claimed benefit at that scale. It makes Option C
-(phased rollout) the natural "probe again" answer: a measured start in 1-2
-high-pain domains is the cheap next probe that could turn these anecdotes
-into real `interventionalActionSupportBasis` evidence before asking for the
-full commitment.
+**Step 3 — comparison basis (C.16):**
 
-Next: Step 3 — build the actual comparison basis (C.16): list measurable
-characteristics, current baseline, expected change per option.
+| Characteristic | Current baseline | Status |
+|---|---|---|
+| Data incidents/rework | unknown | not trackable at all — no log exists |
+| Manual reconciliation hours/week | unknown | no formal tracking, but estimable |
+| Reporting/decision trust | unknown | no formal tracking, but estimable |
+| Audit findings tied to data quality | known | **tracked** — real measured baseline exists |
+
+Only one of four characteristics (audit/compliance) currently has real
+tracked data. The other three are estimate-based hypotheses, not
+measurements — must be labeled as assumptions in the case, matching the step
+2 triage (their support basis is `missing`).
+
+**Strategic implication for step 4:** the honest next move is likely not
+"run a pilot and measure results" but **"first stand up baseline tracking"**
+(incident log, reconciliation-time estimate method, a simple trust signal)
+in whatever domain gets chosen for phased rollout — otherwise there's no
+"before" to compare "after" against, and the C.28 triage stays `missing`
+indefinitely. Audit/compliance is the one domain where a credible measured
+before/after is possible right now.
+
+Next: Step 4 — run the actual C.11 choice procedure over options A-D using
+this evidence picture.
