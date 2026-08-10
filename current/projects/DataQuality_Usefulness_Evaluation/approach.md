@@ -69,5 +69,31 @@ being shredded in exec review.
   | C — Phased rollout | Start with highest-pain domains, expand on evidence |
   | D — Targeted extension | Only extend into domains with a clear, already-visible problem |
 
-Next: Step 2 — C.28 causal triage on the benefit claims already floated for
-extension (rung + support basis + supported/unsupported use, one line each).
+**Step 2 — C.28 causal triage:**
+
+Four benefit claims floated: (1) reduced downstream incidents/rework,
+(2) time saved on manual reconciliation, (3) faster/more trusted reporting &
+decisions, (4) audit/compliance risk reduction. Strongest current evidence
+for all four: **anecdotal only, no systematic measurement.**
+
+| Claim | Support basis | Supported use | Unsupported use |
+|---|---|---|---|
+| Reduced downstream incidents/rework | missing | state as hypothesis, motivates a measured pilot | any "$X saved" / "Y% fewer incidents" number |
+| Time saved on manual reconciliation | missing | same | quantified hours-saved claim |
+| Faster/more trusted reporting & decisions | missing | same | causal "decisions got faster" claim |
+| Audit/compliance risk reduction | missing | same | "risk reduced by X%" claim |
+
+None of the four claims clear even `observationalAssociationSupportBasis` —
+anecdote without systematic observation is `missing` support basis in C.28
+terms.
+
+**Implication for step 4 (preview):** this evidence picture makes Option B
+(full rollout) the hardest to honestly defend to leadership right now — no
+measured support for any claimed benefit at that scale. It makes Option C
+(phased rollout) the natural "probe again" answer: a measured start in 1-2
+high-pain domains is the cheap next probe that could turn these anecdotes
+into real `interventionalActionSupportBasis` evidence before asking for the
+full commitment.
+
+Next: Step 3 — build the actual comparison basis (C.16): list measurable
+characteristics, current baseline, expected change per option.
