@@ -2,6 +2,7 @@
 type: name-card
 pattern: F.18 (Local-First Unification Naming Protocol) — practical adaptation
 created: 2026-08-09
+updated: 2026-08-10
 status: decided
 related: namecard.md (session PlainLabel), namecard-tech-label.md (session TechLabel)
 scope-note: this card names the broader initiative/goal, distinct from the session-level name in the other two cards
@@ -112,3 +113,21 @@ Reopen if the initiative's actual mechanism diversifies beyond sessions
 "Program" starts to feel too narrow or the wrong register — or if leadership
 or the team consistently uses a different term in practice, in which case
 local usage should win over this card's selection.
+
+## Update 2026-08-10 — visibility raised, session name kept as-is
+
+Real feedback from the team: the session-level PlainLabel "Systems Thinking
+Workshop" (namecard.md) didn't land well ("workshop" felt off). Rather than
+reopen the session-level card immediately, the decision this round is
+**structural, not lexical**: keep the two-level structure and the existing
+session name unchanged, but raise the visibility of the already-decided
+Program-level name in everyday usage — lead with **Systems Thinking Program**
+/ **Systems Thinking Capability-Building Program** (this card's names, already
+decided 09.08) in planning documents and references, with "Workshop" demoted
+to naming the specific session mechanism within it, not the whole effort.
+
+This matches the parent-child relation already recorded above (Program = why,
+Workshop = how, for now) — the fix for "workshop doesn't fit" is to stop
+leading with the child name for the whole initiative, not to rename the child.
+If session-level feedback persists after this reframing, namecard.md's own
+reopen condition still applies separately.
