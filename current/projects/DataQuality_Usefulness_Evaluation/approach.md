@@ -3,7 +3,7 @@ type: project-approach
 project: Data Quality System Usefulness Evaluation
 created: 2026-08-10
 method: FPF (fpf.sh) — C.11 Decision Theory, C.28 CausalUse-CAL, C.16 Measurement & Metrics
-status: in progress
+status: complete (5/5 steps)
 ---
 
 # Approach: Evaluating the Usefulness of Implementing a Data Quality System — via FPF
@@ -109,5 +109,56 @@ in whatever domain gets chosen for phased rollout — otherwise there's no
 indefinitely. Audit/compliance is the one domain where a credible measured
 before/after is possible right now.
 
-Next: Step 4 — run the actual C.11 choice procedure over options A-D using
-this evidence picture.
+**Step 4 — C.11 choice procedure:**
+
+Probe-worthiness check: is there a cheap next step that could still flip
+which option leadership should pick, before committing real budget? **Yes** —
+a bounded, measured start in 1-2 domains generates real
+`interventionalActionSupportBasis` evidence that no further analysis of
+existing anecdotes can produce.
+
+This eliminates two options:
+- **Option B (full rollout)** — cannot be honestly defended now; no measured
+  support for any benefit claim at that scale.
+- **Option A (status quo)** — addresses nothing, generates no new evidence.
+
+`ChoiceResult` = **probe again**, where the probe *is* Option C's phase 1
+(not a throwaway pilot). C vs. D fork resolved in favor of **C**: the org
+already purchased an enterprise-wide platform (signals real ambition beyond
+patching visible problems), so phase 1 should be explicitly framed as a
+stepping stone, conditional on what it measures — not a permanent, bounded
+fix (which is what D would imply).
+
+**Phase-1 probe domains (user-identified, highest pain):** Planning and
+Master Data.
+
+**Step 5 — closing decision-rationale record:**
+
+- **Decision:** recommend Option C (phased rollout) to leadership, with
+  Phase 1 scoped to Planning and Master Data domains.
+- **Framing for leadership:** Phase 1 does double duty — it fixes known pain
+  in the two highest-pain domains AND generates the missing baseline/measured
+  evidence needed to justify (or rule out) further expansion. This is not
+  "here's the ROI of full rollout" — it's "here's a bounded bet that tells us
+  whether the bigger bet is worth making."
+- **Causal-use boundary (per step 2):** all four benefit claims stay `missing`
+  support basis until Phase 1 produces real before/after numbers. The case
+  must present benefits as hypotheses to be tested, not proven savings —
+  anything else oversells evidence that doesn't exist yet.
+- **Comparison basis gap to close first (per step 3):** audit/compliance is
+  the only domain with a pre-existing measured baseline. Before or alongside
+  rollout in Planning/Master Data, baseline tracking must be stood up there
+  too (an incident log, a reconciliation-time estimate method, a simple trust
+  signal) — otherwise Phase 1 ends with the same `missing` evidence problem
+  it was supposed to solve.
+- **Next concrete actions:**
+  1. Stand up baseline tracking in Planning and Master Data (incident log,
+     reconciliation-time method, trust signal).
+  2. Define Phase 1 success metrics and a fixed duration/review point.
+  3. Take this framing to leadership — ask for a bounded Phase 1 budget,
+     explicitly not a full-rollout budget, with the evidence question as
+     the deliverable, not just the fix.
+
+**Status: approach complete (all 5 steps).** This is a working case-builder
+document, not the final leadership pitch — next natural step (separate task)
+would be turning this into the actual presentation/write-up for leadership.
