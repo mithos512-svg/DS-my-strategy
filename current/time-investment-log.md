@@ -105,3 +105,4 @@
 ## 15 августа 2026
 
 - Йога: 1 час - сделано
+- Systems Thinking Program: 1 помидорка (~25-30 мин) - сделано (моделирование самой способности systems thinking через FPF A.2.2 U.Capability - holder/canDo/envelope/measures/qualificationWindow/currentnessCondition полностью зафиксированы, current/projects/System_thinking_workshop/capability-modeling-log.md)
