@@ -107,3 +107,4 @@
 - Йога: 1 час - сделано
 - Systems Thinking Program: 1 помидорка (~25-30 мин) - сделано (моделирование самой способности systems thinking через FPF A.2.2 U.Capability - holder/canDo/envelope/measures/qualificationWindow/currentnessCondition полностью зафиксированы, current/projects/System_thinking_workshop/capability-modeling-log.md)
 - S1: 1 помидорка (~25-30 мин) - сделано (черновик поста "6 инсайтов недели" по заметкам W33 - подготовлен, сверен, опубликован в МИМ клуб, current/posts/2026-08-15-s1-insights-w33.md)
+- Рефлексия по IWE: 1 помидорка (~25-30 мин) - сделано (пост "4 из 14: честный аудит своего экзокортекса по функциям IWE" - подготовлен, доработан по фидбэку (убран непроверенный факт про 02.08, исправлена атрибуция ошибок, раскрыто понятие причинной триады), опубликован в МИМ клуб, current/posts/2026-08-15-iwe-audit-reflection.md)
