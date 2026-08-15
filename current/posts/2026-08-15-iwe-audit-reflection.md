@@ -1,10 +1,10 @@
 ---
 type: post
-published: false
+published: true
 platform: МИМ клуб (systemsworld.club)
 created: 2026-08-15
-published_at:
-status: черновик
+published_at: 2026-08-15
+status: опубликован
 ---
 
 # 4 из 14: честный аудит своего экзокортекса по функциям IWE
