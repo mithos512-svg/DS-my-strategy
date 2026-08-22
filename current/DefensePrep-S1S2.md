@@ -1,7 +1,7 @@
 ---
 type: defense-prep
 courses: S1 + S2
-date_defense: 2026-08-23
+date_defense: 2026-08-24T17:00
 status: complete
 ---
 
