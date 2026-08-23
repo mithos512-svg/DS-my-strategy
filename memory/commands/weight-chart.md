@@ -244,5 +244,80 @@ new Chart(ctx, {
 > вес выйдет за пределы 80-88 или % жира за 11-28, расширить диапазон под
 > актуальные данные, иначе точки обрежутся графиком.
 
+## Финальный шаг (добавлено 23.08.2026) - сохранить также как PDF
+
+Помимо HTML-файла, всегда дополнительно сохранять график как PDF - у
+пользователя HTML-версия при сохранении/пересылке получается пустой (файл
+без рендера графика на его стороне), PDF сохраняется надёжно.
+
+**Важно: НЕ использовать CDN-ссылки на Chart.js/plugin при рендеринге в PDF.**
+Причина (найдено 23.08): headless-браузер, которым Claude рендерит HTML в
+PDF внутри контейнера, не имеет сетевого доступа к `cdnjs.cloudflare.com`
+(его нет в списке разрешённых исходящих доменов) - при рендеринге через CDN
+холст графика остаётся пустым, хотя HTML-файл для пользователя (открываемый
+в его браузере, с его собственным доступом в интернет) при этом работает
+нормально. Поэтому именно для PDF-версии библиотеки нужно подключать
+**локально**, а не по ссылке на CDN.
+
+**Пошаговый алгоритм:**
+
+1. Собрать HTML как обычно (см. выше), но для PDF-рендеринга сделать
+   отдельную копию файла с локальными путями к библиотекам вместо CDN:
+   ```html
+   <script src="chart.umd.min.js"></script>
+   <script src="chartjs-plugin-annotation.min.js"></script>
+   ```
+   (вместо `https://cdnjs.cloudflare.com/...`)
+
+2. Установить сами библиотеки локально через npm (реестр npm разрешён
+   сетевым доступом, в отличие от cdnjs) и скопировать нужные файлы рядом
+   с HTML:
+   ```bash
+   npm install chart.js@4.4.0 chartjs-plugin-annotation@3.0.1 --prefix /home/claude/chartlibs
+   cp /home/claude/chartlibs/node_modules/chart.js/dist/chart.umd.js /home/claude/chart.umd.min.js
+   cp /home/claude/chartlibs/node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js /home/claude/chartjs-plugin-annotation.min.js
+   ```
+
+3. Отрендерить HTML в PDF через headless Chrome (уже установлен в кэше
+   puppeteer в этой среде - проверить точный путь через
+   `find /home/claude/.cache/puppeteer/chrome -iname chrome -type f`,
+   версия может отличаться):
+   ```bash
+   CHROME=/home/claude/.cache/puppeteer/chrome/<версия>/chrome-linux64/chrome
+   $CHROME --headless --disable-gpu --no-sandbox \
+     --print-to-pdf=/home/claude/weight-chart.pdf \
+     --no-pdf-header-footer --virtual-time-budget=5000 \
+     "file:///home/claude/<имя файла>.html"
+   ```
+   Сообщения об ошибках вида "Failed to connect to the bus" (dbus) в стандартном
+   выводе - штатный шум headless-режима, не признак сбоя.
+
+4. **Проверить визуально перед выдачей пользователю**: сконвертировать PDF
+   в JPEG через `pdftoppm -jpeg -r 100 weight-chart.pdf preview` и посмотреть
+   через `view` - убедиться, что график реально отрисовался (не пустой холст).
+
+5. Обрезать PDF под размер реального контента (Chrome печатает на полный лист
+   Letter/A4, из-за чего внизу остаётся много пустого места) через `pypdf`:
+   ```python
+   from pypdf import PdfReader, PdfWriter
+   reader = PdfReader("weight-chart.pdf")
+   writer = PdfWriter()
+   page = reader.pages[0]
+   page.mediabox.lower_left = (0, 440)   # подобрать под реальную высоту контента
+   page.mediabox.upper_right = (612, 792)
+   writer.add_page(page)
+   with open("weight-chart-cropped.pdf", "wb") as f:
+       writer.write(f)
+   ```
+   Проверить обрезку тем же способом (шаг 4) перед финальной выдачей - нижние
+   подписи зон body fat% не должны обрезаться.
+
+6. Скопировать оба файла (HTML и обрезанный PDF) в `/mnt/user-data/outputs/`
+   и вызвать `present_files` на оба - показать пользователю сразу.
+
+Статус: обязательный финальный шаг команды "График веса", применять при
+каждом вызове команды, не только когда пользователь явно попросит PDF.
+
 ---
-Создан: 2026-08-17.
+Создан: 2026-08-17. Дополнен 2026-08-23 (шаг сохранения в PDF, обход
+ограничения на CDN в headless-рендеринге).
