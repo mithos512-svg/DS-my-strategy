@@ -15,7 +15,7 @@ updated: 2026-08-25
 | Проект | Статус | Последнее движение | Следующий шаг | Детали |
 |---|---|---|---|---|
 | Systems Thinking Program | Отложен (идентичность системы закрыта) | 23.08 - FPF A.1 Template A закрыт | Template C (участие/функционирование) - когда решим взять в работу | `current/projects/System_thinking_workshop/system-identity-A1.md` |
-| DataQuality / DPF-LPF (data quality) | Черновик, перенесено на конец месяца | 20.08 - закрыто минимальной версией (стоп-лист) | Решить в эту неделю (месяц заканчивается) или перенести явно | `current/projects/DataQuality_Usefulness_Evaluation/dpf-lpf-outline.md` |
+| DataQuality / DPF-LPF (data quality) | В работе — первый полезный результат по FPF E.4.DPF (шаги 1-5) | 25.08 - читатель/проблема/граница названы, DAMA как источник, 4 pattern-карточки | Framework scale test (E.4.DPF:4.0) - тянет ли на отдельное издание | `current/projects/DataQuality_Usefulness_Evaluation/dpf-lpf-outline.md` |
 | R1 «Распожаризация» | Активен, фоновый ритм | текущая неделя - 9+ заданий продиктовано, 3 поста опубликовано | продолжать как обычно, не трекать отдельной строкой | learning-journal, посты в клубе МИМ |
 | Lifework-пакет / Личный устав | Отложен до 2027-02 | 17.08 - решение отложить | не поднимать до гейта готовности (≥6 мес.) | `current/lifework-tracker.md` |
 | DefensePrep S1+S2 | Завершён, защита прошла | 24.08 - защита состоялась, отлично | нет следующего шага, проект закрыт | `current/DefensePrep-S1S2.md` |
