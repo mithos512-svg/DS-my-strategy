@@ -1,9 +1,11 @@
 ---
 type: post
-published: false
+published: true
 platform: МИМ клуб (systemsworld.club)
+url: https://systemsworld.club/t/puteshestvie-obekta-kogda-dataset-stanovitsya-zakatalogizirovannym/41603
 created: 2026-10-16
-status: черновик
+published_at: 2026-10-18
+status: опубликован
 source: current/projects/Ataccama-DataTrust/journey-catalogued-dataset.md (v0.3), learning-journal 2026-10-14..16
 ---
 
