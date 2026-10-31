@@ -1,9 +1,11 @@
 ---
 type: post
-published: false
+published: true
 platform: МИМ клуб (systemsworld.club)
+url: https://systemsworld.club/t/posmotri-vsyo-li-ok-kak-soglasovanie-chetyryoh-slajdov-stalo-sporom-o-gotovnosti/41755
 created: 2026-10-30
-status: черновик
+published_at: 2026-10-31
+status: опубликован
 source: R3.3:Tasks1, R3.3:9 (MimEcoSys/docs, синхронизация 24.10.2026); FPF Library снапшот 20261030T125959Z
 ---
 
