@@ -1,162 +1,162 @@
-# Путешествие объекта «закаталогизированный датасет в Ataccama» - модель v0.3
+# Object journey "catalogued dataset in Ataccama" - model v0.3
 
-**Статус:** v0.3 (16.10.2026) - все открытые вопросы v0.1-v0.2 закрыты
-ответами пользователя; принято итоговое правило идентичности (§7). Модель
-actionable; следующий шаг - первый замер Flow Time.
+**Status:** v0.3 (2026-10-16) - all open questions of v0.1-v0.2 are closed by
+the user's answers; the final identity rule is adopted (§7). The model is
+actionable; the next step is the first Flow Time measurement.
 
-**Метод:** онтология путешествия объектов R2.6:7 (объект путешествия →
-состояния → события → узлы графа создателей → контактёры → работа vs такт
-работы → путь → поток) + измерение по R2.6:4. Сверка через FPF Library
-(снапшот 20261015T182921Z, актуален upstream на 16.10): `A.15.PROD`
-(три вопроса производства), `A.3.4` (трансформация), `A.15.1` (работа),
-`E.24.PUB` (публикация = доступность аудитории, отдельная от завершения).
+**Method:** object-journey ontology R2.6:7 (journeying object → states →
+events → nodes of the creators' graph → contactors → work vs work cycle →
+path → flow) + measurement per R2.6:4. Checked against FPF Library
+(snapshot 20261015T182921Z, matching upstream on 16.10): `A.15.PROD`
+(three production questions), `A.3.4` (transformation), `A.15.1` (work),
+`E.24.PUB` (publication = availability to an audience, separate from completion).
 
-**Что изменилось в v0.2 (ответы пользователя 16.10):**
-1. Статусы catalog item - стандартные Ataccama ONE (approval workflow:
-   черновик → на утверждении → утверждено; точные названия - по конфигурации).
-2. Approval workflow (состояние 8) есть как настроенный процесс → закрывающее
-   правило по A.15.PROD существует: завершение работы каталогизации = событие
-   «workflow approved».
-3. **Правило идентичности:** «закаталогизированный датасет» существует с
-   состояния **9 - опубликован для потребителей**, не с 2 и не с 8.
-4. Lineage (7) - **параллельная ветка**, не обязательное состояние перед 8.
-5. Аудитория публикации - **self-service UI**, скоро добавится **MCP**
-   (агенты как вторая аудитория).
+**What changed in v0.2 (user's answers, 16.10):**
+1. Catalog item statuses are the standard Ataccama ONE ones (approval workflow:
+   draft → pending approval → approved; exact names depend on configuration).
+2. The approval workflow (state 8) exists as a configured process → a closure
+   rule in the sense of A.15.PROD exists: completion of the cataloguing work =
+   the event "workflow approved".
+3. **Identity rule:** a "catalogued dataset" exists from state
+   **9 - published to consumers**, not from 2 and not from 8.
+4. Lineage (7) is a **parallel branch**, not a mandatory state before 8.
+5. Publication audience is **self-service UI**; **MCP** is coming soon
+   (agents as a second audience).
 
 ---
 
-## 1. Объект путешествия
+## 1. The journeying object
 
-Два объекта, не смешивать:
+Two objects, not to be mixed:
 
-| Объект | Тип | Где живёт |
+| Object | Type | Where it lives |
 |---|---|---|
-| **Датасет** (таблица/файл в источнике) | физический объект, носитель данных | SAP / GCP / BI / файловое хранилище |
-| **Каталожная запись** (catalog item) о датасете | **эпистема** - описание датасета | Ataccama ONE Catalog |
+| **Dataset** (table/file in the source) | physical object, data carrier | SAP / GCP / BI / file storage |
+| **Catalog item** about the dataset | **episteme** - a description of the dataset | Ataccama ONE Catalog |
 
-Объект путешествия - **каталожная запись**; датасет - её референт.
-«Закаталогизированный датасет» = датасет, запись о котором **опубликована
-потребителям** (состояние 9, решение пользователя 16.10).
+The journeying object is the **catalog item**; the dataset is its referent.
+"Catalogued dataset" = a dataset whose item is **published to
+consumers** (state 9, user's decision of 16.10).
 
-## 2. Три вопроса A.15.PROD - закрытые ответами
+## 2. The three A.15.PROD questions - closed by answers
 
-| Вопрос A.15.PROD | Ответ для нашей настройки | Следствие |
+| A.15.PROD question | Answer for our setup | Consequence |
 |---|---|---|
-| **Участие работы** | Каталогизация = составная работа из частей: импорт, профилирование, классификация/описание, владелец, DQ-привязка, lineage (параллельно), утверждение, публикация. Каждая часть - своя работа (`A.15.1`) | Отчёт «каталогизировано N датасетов» обязан говорить, по какому состоянию считали. Импорт ≠ каталогизация |
-| **Начало существования** | Правило идентичности принято: запись в состоянии 9 (опубликована аудитории). `inceptionBoundary` = событие «публикация в self-service завершена» | Записи в 2-8 - *кандидаты*, не закаталогизированные датасеты. Это надо проговорить с командой, иначе будут считать по 2 или по 8 (R2.6:5 - разные шкалы) |
-| **Завершение** | Два утверждения: (а) запись удовлетворяет чеклисту утверждения (состояние 8 = approved); (б) работа каталогизации закрыта - закрывающее правило = approval workflow. Публикация (9) - отдельная претензия `E.24.PUB` | Approval не равен публикации: между 8 и 9 может быть разрыв (права, видимость), который сейчас никто не меряет |
+| **Work participation** | Cataloguing = composite work made of parts: import, profiling, classification/description, owner, DQ binding, lineage (parallel), approval, publication. Each part is its own work (`A.15.1`) | A report "N datasets catalogued" must state which state was counted. Import ≠ cataloguing |
+| **Inception of existence** | Identity rule adopted: item in state 9 (published to the audience). `inceptionBoundary` = event "publication to self-service completed" | Items in 2-8 are *candidates*, not catalogued datasets. This must be agreed with the team, otherwise people will count by 2 or by 8 (R2.6:5 - different scales) |
+| **Completion** | Two claims: (a) the item satisfies the approval checklist (state 8 = approved); (b) the cataloguing work is closed - the closure rule = approval workflow. Publication (9) is a separate `E.24.PUB` claim | Approval is not publication: between 8 and 9 there can be a gap (permissions, visibility) that nobody measures now |
 
-**Важное следствие E.24.PUB для MCP:** публикация описывается как «публикация
-P делает издание эпистемы E доступным аудитории A для использования U через
-форму F на носителе C». Self-service UI и MCP - **две разные формы F и две
-аудитории A** (люди и агенты). По E.24.PUB это **два отдельных события
-публикации**, а не одно. Значит, с появлением MCP у записи будет два
-состояния 9: «опубликовано людям» и «опубликовано агентам», и критерий
-«закаталогизирован» придётся уточнить - по первому, по обоим, или по
-основному.
+**Important E.24.PUB consequence for MCP:** publication is described as
+"publication P makes edition of episteme E available to audience A for use U
+through form F on carrier C". Self-service UI and MCP are **two different forms F
+and two audiences A** (humans and agents). Per E.24.PUB these are **two separate
+publication events**, not one. So once MCP arrives, an item will have two
+states 9: "published to humans" and "published to agents", and the criterion
+"catalogued" will have to be refined - by the first, by both, or by the
+primary one.
 
-## 3. Методологический путь: состояния и события
+## 3. Methodological path: states and events
 
-Последовательность в методологическом времени (без часов). Lineage вынесен
-в параллельную ветку.
+Sequence in methodological time (no clock). Lineage is moved to a parallel
+branch.
 
-| # | Состояние записи | Событие-вход (как узнаём) | Узел графа создателей | Контактёр (роль) | Работа по методу | Типовой откат |
+| # | Item state | Entry event (how we know) | Node of the creators' graph | Contactor (role) | Work by method | Typical rollback |
 |---|---|---|---|---|---|---|
-| 0 | **Датасет существует, записи нет** (вход) | - | источник (SAP/GCP/BI) | владелец системы-источника | - | - |
-| 1 | **Источник подключён** | коннектор Connected, первый успешный сканинг | Ataccama ONE: Sources | Data Engineer / Platform | настройка коннектора | креды протухли → 0 |
-| 2 | **Метаданные импортированы** (запись существует технически, черновик) | catalog item появился | Catalog | автомат + Data Engineer | discovery / metadata scan | схема изменилась → повторный импорт |
-| 3 | **Профилировано** | profiling job завершён | Catalog / Profiling | автомат, инициирует Data Engineer / Steward | profiling | ошибка доступа → 2 |
-| 4 | **Классифицировано и описано** | термины и классификация назначены, описание заполнено | Catalog / Business Glossary | Data Steward | классификация, описание | спор о термине → остаётся в 4 (Wait) |
-| 5 | **Владелец назначен** | Owner/Steward заполнен, владелец подтвердил | Catalog / Ownership | Data Governance Lead ↔ бизнес-владелец | назначение + подтверждение | владелец отказывается → эскалация (Wait!) |
-| 6 | **DQ-привязка сделана** | DQ-правила назначены, первый прогон есть | DQ module | Data Steward + DQ analyst | настройка правил, прогон | правила падают → доработка |
-| 7∥ | **Lineage построен** (параллельная ветка, не блокирует 8) | upstream/downstream видны | Lineage module | Data Engineer | lineage scan / ручная привязка | источник не поддержан → ручной lineage или открытый пункт |
-| 8 | **Утверждено** (approval workflow) | workflow status = approved | Catalog / Workflow | approver (Governance Lead / Steward) | ревью по чеклисту | returned → 4-6 |
-| 9 | **Опубликовано для потребителей** = **закаталогизированный датасет существует** | запись видима в self-service UI целевой аудитории; (скоро) доступна через MCP - отдельное событие | Catalog / Access | Platform + Governance | публикация, права | аудитория не видит → не опубликовано, хотя approved |
-| 10 | **Используется** (выход) | первый поиск/запрос аналитика или агента к записи | потребители | аналитик / бизнес / агент через MCP | - | - |
+| 0 | **Dataset exists, no item** (entry) | - | source (SAP/GCP/BI) | source system owner | - | - |
+| 1 | **Source connected** | connector Connected, first successful scan | Ataccama ONE: Sources | Data Engineer / Platform | connector setup | credentials expired → 0 |
+| 2 | **Metadata imported** (item exists technically, draft) | catalog item appeared | Catalog | automation + Data Engineer | discovery / metadata scan | schema changed → re-import |
+| 3 | **Profiled** | profiling job finished | Catalog / Profiling | automation, triggered by Data Engineer / Steward | profiling | access error → 2 |
+| 4 | **Classified and described** | terms and classification assigned, description filled in | Catalog / Business Glossary | Data Steward | classification, description | dispute over a term → stays in 4 (Wait) |
+| 5 | **Owner assigned** | Owner/Steward filled in, owner confirmed | Catalog / Ownership | Data Governance Lead ↔ business owner | assignment + confirmation | owner refuses → escalation (Wait!) |
+| 6 | **DQ binding done** | DQ rules assigned, first run exists | DQ module | Data Steward + DQ analyst | rule setup, run | rules fail → rework |
+| 7∥ | **Lineage built** (parallel branch, does not block 8) | upstream/downstream visible | Lineage module | Data Engineer | lineage scan / manual linking | source not supported → manual lineage or open item |
+| 8 | **Approved** (approval workflow) | workflow status = approved | Catalog / Workflow | approver (Governance Lead / Steward) | review against checklist | returned → 4-6 |
+| 9 | **Published to consumers** = **catalogued dataset exists** | item visible in self-service UI to the target audience; (soon) available via MCP - a separate event | Catalog / Access | Platform + Governance | publication, permissions | audience cannot see it → not published, although approved |
+| 10 | **In use** (exit) | first search/query by an analyst or agent on the item | consumers | analyst / business / agent via MCP | - | - |
 
-Узлы **4, 5, 8** - где работа уходит в ожидание (координация с ролями вне
-команды данных). Узел **9** - новый кандидат на невидимый разрыв: approved,
-но не опубликовано.
+Nodes **4, 5, 8** are where work goes into waiting (coordination with roles
+outside the data team). Node **9** is a new candidate for an invisible gap:
+approved but not published.
 
-## 4. Работа vs такт работы (R2.6:7)
+## 4. Work vs work cycle (R2.6:7)
 
-«Работа завершена, когда есть нужный объект в нужном состоянии; такт работы
-может завершиться и без этого». Для узлов 4-8 считать число тактов:
+"Work is complete when the needed object is in the needed state; a work cycle
+can finish without that." For nodes 4-8 count the number of cycles:
 
-- «отправлено владельцу на подтверждение» - такт; «владелец подтвердил» -
-  работа. Три письма без ответа = три такта, работа не завершена.
-- Если тактов регулярно больше одного - менять исполнителя или метод
-  (например, чеклист готовности к утверждению вместо переписки - связь с
-  НЭП про чеклисты 14.10, R2.6:2).
+- "sent to the owner for confirmation" is a cycle; "owner confirmed" is
+  the work. Three emails without an answer = three cycles, work not complete.
+- If there are regularly more than one cycle - change the performer or the method
+  (e.g., an approval-readiness checklist instead of email threads - link to
+  the dissatisfaction about checklists of 14.10, R2.6:2).
 
-## 5. Пути и поток
+## 5. Paths and flow
 
-- **Путь** одной записи отклоняется от методологического: справочники идут
-  2 → 4 → 8 → 9 без DQ; часть зависает в 5; часть возвращается из 8 в 4.
-  Lineage теперь явно может завершаться после 9 - это нормально по модели.
-- **Поток** - записи одного класса (например, домен «продукт»). Метрики
-  по R2.6:4: **выпуск** = записей, вошедших в 9 за неделю; **скорость до
-  результата** = 0 → 9; **ограничение** = узел с максимальным Wait Time
-  (гипотеза: 5 или 8).
-- Критерий roadmap «первый сертифицированный датасет - продуктовый каталог»
-  (Фаза 1): по принятому правилу идентичности это состояние **9**, не 8.
-  Предложение - уточнить формулировку milestone в roadmap: «первый
-  датасет, опубликованный в self-service после approval».
+- The **path** of one item deviates from the methodological one: reference data goes
+  2 → 4 → 8 → 9 without DQ; some items get stuck in 5; some return from 8 to 4.
+  Lineage can now explicitly finish after 9 - this is fine by the model.
+- **Flow** = items of one class (e.g., the "product" domain). Metrics
+  per R2.6:4: **throughput** = items entering 9 per week; **speed to
+  result** = 0 → 9; **constraint** = the node with the maximum Wait Time
+  (hypothesis: 5 or 8).
+- Roadmap criterion "first certified dataset - product catalog"
+  (Phase 1): under the adopted identity rule this is state **9**, not 8.
+  Proposal - refine the milestone wording in the roadmap: "first
+  dataset published to self-service after approval".
 
-## 6. Что измерять (минимум)
+## 6. What to measure (minimum)
 
-| Метрика | Как снять в Ataccama | Зачем |
+| Metric | How to get it in Ataccama | Why |
 |---|---|---|
-| Дата входа в состояния 2-9 на запись | аудит-лог catalog item, workflow history | Flow Time по узлам |
-| Число тактов в узлах 5 и 8 | workflow history (returns, reminders) | где работа не завершается с первого раза |
-| Доля возвратов из 8 в 4-6 | workflow history | качество подготовки к утверждению |
-| Wait Time в 4, 5, 8 | «отправлено» vs «подтверждено» | ограничение потока |
-| (после MCP) доля approved-записей, доступных агентам | конфигурация MCP-экспозиции | второе событие публикации; при запуске MCP - прогресс пакетной допубликации (§7.1) |
+| Entry date into states 2-9 per item | catalog item audit log, workflow history | Flow Time per node |
+| Number of cycles in nodes 5 and 8 | workflow history (returns, reminders) | where work does not complete the first time |
+| Share of returns from 8 to 4-6 | workflow history | quality of preparation for approval |
+| Wait Time in 4, 5, 8 | "sent" vs "confirmed" | flow constraint |
+| (after MCP) share of approved items available to agents | MCP exposure configuration | second publication event; at MCP launch - progress of batch re-publication (§7.1) |
 
-(Метрика «разрыв 8 → 9» снята в v0.3: переход автоматический, §7.2.)
+(The "8 → 9 gap" metric was dropped in v0.3: the transition is automatic, §7.2.)
 
-## 7. Решения v0.3 (ответы пользователя 16.10, закрывают вопросы v0.2)
+## 7. Decisions v0.3 (user's answers of 16.10, closing the v0.2 questions)
 
-1. **«Закаталогизирован» = опубликован обеим аудиториям** - людям
-   (self-service UI) и агентам (MCP). По E.24.PUB это два события
-   публикации; правило идентичности - **конъюнкция**: `inceptionBoundary`
-   = момент второго из двух событий. До запуска MCP правило временно
-   выполняется одним событием (UI) - это надо зафиксировать явно как
-   переходный период, иначе после запуска MCP все «закаталогизированные»
-   датасеты формально перестанут таковыми быть, пока не экспонированы
-   агентам. Практическое следствие: **запуск MCP = пакетная работа
-   «допубликовать все approved-записи агентам»**, с собственным замером.
-2. **Переход 8 → 9 автоматический** → разрыв 8 → 9 по конструкции
-   нулевой, узел 9 для людей схлопывается с 8 в замерах (метрика «разрыв
-   8 → 9» снята из §6). Контактёр публикации - автомат. **Но:** после
-   запуска MCP нужно проверить, автоматизирована ли и вторая публикация;
-   если нет - разрыв 8 → 9(MCP) становится новым ручным узлом.
-3. **Lineage: «завершено» = «создано», на потребителей не влияет** →
-   ветка 7∥ остаётся в модели как состояние записи, но не входит ни в
-   правило идентичности, ни в критерий завершения, ни в метрики потока.
-   Замер по ней не ведётся.
+1. **"Catalogued" = published to both audiences** - humans
+   (self-service UI) and agents (MCP). Per E.24.PUB these are two publication
+   events; the identity rule is a **conjunction**: `inceptionBoundary`
+   = the moment of the second of the two events. Until MCP launches, the rule is
+   temporarily satisfied by one event (UI) - this must be recorded explicitly as a
+   transition period, otherwise after MCP launch all "catalogued"
+   datasets will formally stop being so until exposed to
+   agents. Practical consequence: **MCP launch = batch work
+   "publish all approved items to agents"**, with its own measurement.
+2. **The 8 → 9 transition is automatic** → the 8 → 9 gap is zero by
+   construction; node 9 for humans collapses into 8 in measurements (the
+   "8 → 9 gap" metric removed from §6). The publication contactor is automation. **But:** after
+   MCP launch, check whether the second publication is automated too;
+   if not, the 8 → 9(MCP) gap becomes a new manual node.
+3. **Lineage: "complete" = "created", does not affect consumers** →
+   branch 7∥ stays in the model as an item state but is part of neither
+   the identity rule, nor the completion criterion, nor the flow metrics.
+   It is not measured.
 
-**Итоговое правило идентичности (для записи в командный глоссарий):**
-«Датасет X закаталогизирован, если каталожная запись о X прошла approval
-workflow и опубликована потребителям через все включённые формы публикации
-(сейчас: self-service UI; с запуском MCP: UI и MCP)». Одно предложение,
-одно место, чтобы Data Engineer, Steward и бизнес считали по одному
-состоянию (R2.6:5).
+**Final identity rule (for the team glossary):**
+"Dataset X is catalogued if the catalog item about X has passed the approval
+workflow and is published to consumers through all enabled publication forms
+(now: self-service UI; once MCP launches: UI and MCP)". One sentence,
+one place, so that Data Engineer, Steward and business count by the same
+state (R2.6:5).
 
-## 8. Следующий шаг
+## 8. Next step
 
-Первый замер: один датасет (продуктовый каталог, Фаза 1 roadmap) - даты
-входа в состояния 2-8 из workflow history, число тактов в узлах 5 и 8.
-Результат - v0.4 с первыми цифрами Flow Time. Ориентир - одна помидорка с
-открытым Ataccama. Отдельно: внести правило идентичности из §7 в roadmap
-(milestone Фазы 1) и в глоссарий команды.
+First measurement: one dataset (product catalog, roadmap Phase 1) - entry
+dates into states 2-8 from workflow history, number of cycles in nodes 5 and 8.
+Result - v0.4 with the first Flow Time figures. Target - one pomodoro with
+Ataccama open. Separately: add the identity rule from §7 to the roadmap
+(Phase 1 milestone) and to the team glossary.
 
 ---
 
-Источники: R2.6:4 «Измерение изменений», R2.6:7 «Онтология путешествия
-объектов» (docs-courses, `professional/modeling-1/06-.../07-...md`,
+Sources: R2.6:4 "Measuring change", R2.6:7 "Object journey ontology"
+(docs-courses, `professional/modeling-1/06-.../07-...md`,
 `.../11-ontology-of-the-object-journey.md`); FPF Library `A.15.PROD`
 (https://fpf.tools/A.15.PROD), `E.24.PUB` (https://fpf.tools/E.24.PUB:4),
-`A.3.4` (https://fpf.tools/A.3.4:4.1), снапшот 20261015T182921Z-219aa77d287d7d2d.
-Создан: 2026-10-16 (v0.1). Обновлён: 2026-10-16 (v0.2, ответы пользователя на
-5 открытых вопросов).
+`A.3.4` (https://fpf.tools/A.3.4:4.1), snapshot 20261015T182921Z-219aa77d287d7d2d.
+Created: 2026-10-16 (v0.1). Updated: 2026-10-16 (v0.2, user's answers to
+5 open questions). Translated to English: 2026-11-05 (content unchanged).
