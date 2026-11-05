@@ -1,244 +1,244 @@
-# Узел графа создателей «Утверждение каталожной записи» (узел 8) - описание, роль, методы
+# Creators' graph node "Catalog item approval" (node 8) - description, role, methods
 
-**Статус:** v0.1, 18.10.2026. Ответ на задание R2.6 «выберите наиболее знакомый
-узел графа создателей, опишите его, назовите роль и методы». Источник модели -
-`journey-catalogued-dataset.md` v0.3, чеклист узла - `checklist-approval-readiness.md`.
+**Status:** v0.1, 2026-10-18. Answer to the R2.6 assignment "choose the most familiar
+node of the creators' graph, describe it, name the role and methods". Model source -
+`journey-catalogued-dataset.md` v0.3, node checklist - `checklist-approval-readiness.md`.
 
-**Допущение (сверить):** выбран узел 8 - approval workflow - как наиболее
-знакомый, потому что именно в нём пользователь как Product Owner системы
-DG/DQ либо сам выступает approver'ом, либо владеет методом утверждения. Если
-реальная роль пользователя в узле другая (например, Governance Lead
-утверждает, а PO только владеет регламентом) - заменить в §3 и §4.
+**Assumption (to verify):** node 8 - approval workflow - is chosen as the most
+familiar, because in it the user, as Product Manager of the DG/DQ
+system, either acts as approver or owns the approval method. If
+the user's actual role in the node is different (e.g., the Governance Lead
+approves and the PM only owns the regulation) - replace in §3 and §4.
 
-Термины - по онтологии R2.6:7: узел графа создателей = функциональная
-локация; взаимодействие/контакт ≠ место контакта; контактёр = исполнитель
-роли, который взаимодействует с объектом; работа по методу; такт работы.
-Сверка с FPF (`A.15.PROD`, снапшот 20261015T182921Z): роль - через `A.13`
-(`U.SystemRoleAssignment` - назначение роли агенту), метод - `A.3.1`
-(`U.Method`: «governed way of doing, intended production effect, applicability»),
-работа - `A.15.1` (`U.Work`, датированное событие, enactsMethod).
+Terms follow the R2.6:7 ontology: creators' graph node = functional
+location; interaction/contact ≠ place of contact; contactor = role
+performer who interacts with the object; work by method; work cycle.
+Checked against FPF (`A.15.PROD`, snapshot 20261015T182921Z): role via `A.13`
+(`U.SystemRoleAssignment` - assignment of a role to an agent), method - `A.3.1`
+(`U.Method`: "governed way of doing, intended production effect, applicability"),
+work - `A.15.1` (`U.Work`, dated event, enactsMethod).
 
 ---
 
-## 1. Узел: что это и где находится
+## 1. The node: what it is and where it is
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| **Функциональная локация** | Узел «Утверждение» в approval workflow системы DG/DQ |
-| **Физическое место** | Экран workflow-задачи в веб-интерфейсе DG/DQ (очередь «на утверждении» у approver'а); уведомления - почта/Teams |
-| **Вход в узел** (событие) | Steward нажал «Submit for approval» → запись в состоянии «на утверждении», задача появилась в очереди approver'а |
-| **Выход из узла** (события) | (а) «approved» → запись в состоянии «утверждена», далее автоматически «опубликована»; (б) «returned» → запись возвращается в 4-6, такт работы завершён без нужного состояния |
-| **Объект в фокусе** | Каталожная запись о датасете X (эпистема); датасет - референт, в узле не трогается |
-| **Соседние узлы** | Вход из 4-6 (классификация, владелец, DQ); выход в 9 (публикация, автомат) или назад в 4-6 |
-| **Что здесь происходит с объектом** (трансформация, `A.3.4`) | Изменяется **статус** записи и появляется **решение с комментарием**; содержание записи в узле не редактируется (редактирование - в 4-6) |
+| **Functional location** | The "Approval" node in the DG/DQ system approval workflow |
+| **Physical place** | Workflow task screen in the DG/DQ web UI (the approver's "pending approval" queue); notifications - email/Teams |
+| **Node entry** (event) | Steward clicked "Submit for approval" → item in state "pending approval", task appeared in the approver's queue |
+| **Node exit** (events) | (a) "approved" → item in state "approved", then automatically "published"; (b) "returned" → item goes back to 4-6, the work cycle ended without the needed state |
+| **Object in focus** | Catalog item about dataset X (episteme); the dataset is the referent and is not touched in the node |
+| **Neighbouring nodes** | Entry from 4-6 (classification, owner, DQ); exit to 9 (publication, automatic) or back to 4-6 |
+| **What happens to the object here** (transformation, `A.3.4`) | The item's **status** changes and a **decision with a comment** appears; item content is not edited in the node (editing happens in 4-6) |
 
-## 2. Взаимодействие (контакт), не путать с местом
+## 2. Interaction (contact), not to be confused with the place
 
-Контакт в узле - это **ревью**: approver читает запись и сверяет её с
-чеклистом, затем фиксирует решение. Три отдельных действия:
+The contact in the node is the **review**: the approver reads the item and checks it
+against the checklist, then records the decision. Three separate actions:
 
-1. открыть задачу и запись (вход в контакт);
-2. сверить по строкам A-D чеклиста (само взаимодействие);
-3. зафиксировать решение approved / returned со ссылкой на строки (выход).
+1. open the task and the item (entering the contact);
+2. check rows A-D of the checklist (the interaction itself);
+3. record the decision approved / returned with row references (exit).
 
-«Точка контакта» в смысле маркетинга здесь неприменима - по R2.6:7 мы
-разделяем место (workflow-задача) и контакт (ревью).
+A "touchpoint" in the marketing sense does not apply here - per R2.6:7 we
+separate the place (workflow task) and the contact (review).
 
-## 3. Роль-контактёр
+## 3. Contactor role
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| **Роль** | **Approver каталожной записи** (в нашей организации - Data Governance Lead / Product Owner системы DG/DQ) |
-| **Назначение роли агенту** (`A.13`) | Назначается через права в workflow: пользователь в группе Approvers для домена. Один агент может быть approver'ом по нескольким доменам; для одного домена - один approver (сверить, нет ли нескольких) |
-| **Что роль держит во внимании** | Полнота записи (блоки A-C чеклиста), однозначность связи с активом, подтверждённый владелец, готовность к публикации (блок D) |
-| **Чего роль НЕ делает** | Не редактирует запись (это steward), не назначает владельца (это 5), не настраивает права (это platform). Если approver начинает «дописывать сам» - смена роли внутри узла (R2.6:1), и это надо замечать |
-| **Соседние роли в узле** | Data Steward (отправитель, получает return), бизнес-владелец (может быть запрошен для подтверждения B3), Platform (если D1 не выполнено) |
-| **Интересы роли** (R2.6:1 - свои объекты и вопросы) | «Можно ли опубликовать это потребителям без вреда?» - не «правильно ли описан датасет» (это вопрос steward'а) |
+| **Role** | **Catalog item approver** (in our organisation - Data Governance Lead / Product Manager of the DG/DQ system) |
+| **Assignment of the role to an agent** (`A.13`) | Assigned via workflow permissions: the user is in the Approvers group for a domain. One agent can be approver for several domains; for one domain - one approver (verify there aren't several) |
+| **What the role keeps in attention** | Item completeness (checklist blocks A-C), unambiguous link to the asset, confirmed owner, readiness for publication (block D) |
+| **What the role does NOT do** | Does not edit the item (that is the steward), does not assign the owner (that is 5), does not set permissions (that is Platform). If the approver starts "filling it in themselves", that is a role switch inside the node (R2.6:1) and must be noticed |
+| **Neighbouring roles in the node** | Data Steward (submitter, receives the return), business owner (may be asked to confirm B3), Platform (if D1 is not met) |
+| **Role interests** (R2.6:1 - its own objects and questions) | "Can this be published to consumers without harm?" - not "is the dataset described correctly" (that is the steward's question) |
 
-## 4. Методы, по которым действует агент в роли approver
+## 4. Methods by which the agent acts in the approver role
 
-Методы - описания в классах (`A.3.1`); работа - конкретное ревью записи X
-такого-то числа (`A.15.1`).
+Methods are descriptions in classes (`A.3.1`); work is a specific review of item X
+on a specific date (`A.15.1`).
 
-| # | Метод | Что на входе | Что на выходе (целевое состояние объекта) | Источник метода | Где описан |
+| # | Method | Input | Output (target state of the object) | Method source | Where described |
 |---|---|---|---|---|---|
-| M1 | **Ревью по чеклисту готовности** | запись «на утверждении» + заполненный steward'ом чеклист | строки A-D отмечены approver'ом; расхождения названы по номеру строки | R2.6:2-3 (чеклист = предметы + состояния); FPF A.15.PROD (три вопроса) | `checklist-approval-readiness.md` |
-| M2 | **Принятие решения approved / returned** | результат M1 | статус записи изменён; при return - список строк, без письма | R2.6:5 (решение = выбор по шкале «точность/скорость»: approver сознательно выбирает, где остановиться по полноте) | легенда чеклиста, §4 |
-| M3 | **Проверка правила идентичности** | запись + правило «закаталогизирован = approved и опубликован всем аудиториям» | подтверждение, что запись претендует на состояние 9, а не на «есть в каталоге» (строка B1) | FPF A.15.PROD вопрос 2 (entity-identity inception); E.24.PUB (аудитории) | `journey-catalogued-dataset.md` §7 |
-| M4 | **Учёт тактов** | история workflow по записи | номер такта в экземпляре чеклиста; при такте ≥2 - вопрос «менять исполнителя или метод» | R2.6:7 (работа vs такт работы) | экземпляр чеклиста, поле «Такт №» |
-| M5 | **Эскалация** (редко) | B3 не выполнено - владелец не подтвердил | задача владельцу / Governance; запись остаётся «на утверждении» в состоянии ожидания (Wait Time растёт) | R2.6:2 (Wait Time, TameFlow); R1.3:3 (стихийная/скрытая работа - учесть) | не описан отдельно - кандидат в регламент |
+| M1 | **Review against the readiness checklist** | item "pending approval" + checklist filled in by the steward | rows A-D marked by the approver; discrepancies named by row number | R2.6:2-3 (checklist = subjects + states); FPF A.15.PROD (three questions) | `checklist-approval-readiness.md` |
+| M2 | **Decision approved / returned** | result of M1 | item status changed; on return - a list of rows, no email | R2.6:5 (decision = choice on the "precision/speed" scale: the approver consciously chooses where to stop on completeness) | checklist legend, §4 |
+| M3 | **Identity rule check** | item + rule "catalogued = approved and published to all audiences" | confirmation that the item claims state 9, not "is in the catalog" (row B1) | FPF A.15.PROD question 2 (entity-identity inception); E.24.PUB (audiences) | `journey-catalogued-dataset.md` §7 |
+| M4 | **Cycle accounting** | workflow history of the item | cycle number in the checklist instance; at cycle ≥2 - the question "change the performer or the method" | R2.6:7 (work vs work cycle) | checklist instance, field "Cycle #" |
+| M5 | **Escalation** (rare) | B3 not met - owner has not confirmed | task to the owner / Governance; item stays "pending approval" in a waiting state (Wait Time grows) | R2.6:2 (Wait Time, TameFlow); R1.3:3 (spontaneous/hidden work - account for it) | not described separately - a candidate for the regulation |
 
-**Что из этого сегодня реально записано как метод, а что - в голове:** M1 и
-M2 - записаны (чеклист v0.1, легенда); M3 - записано правилом в модели, в
-команду ещё не донесено; M4 - только идея, учёт тактов не ведётся; M5 -
-устная практика. То есть узел работает на 2 из 5 описанных методов -
-остальные три исполняются «по памяти», что по R2.6:3 и есть источник
-пропусков.
+**What of this is actually written down as a method today, and what is in someone's head:** M1 and
+M2 are written (checklist v0.1, legend); M3 is written as a rule in the model but not yet
+communicated to the team; M4 is only an idea, cycles are not tracked; M5 is
+oral practice. So the node runs on 2 of the 5 described methods -
+the other three are performed "from memory", which per R2.6:3 is the source
+of omissions.
 
-## 5. Что узел делает с потоком (R2.6:4)
+## 5. What the node does to the flow (R2.6:4)
 
-- Узел 8 - кандидат в **ограничение** потока (вместе с 5): здесь
-  накапливается Wait Time (очередь у approver'а) и возвраты.
-- Два разных времени в узле: **время ожидания в очереди** (запись ждёт
-  approver'а) и **время касания** (само ревью, обычно минуты). Если первое
-  в разы больше второго - ограничение не в методе ревью, а в загрузке роли
-  или в количестве approver'ов.
-- Замер: дата входа «на утверждении» → дата решения; доля returned; такт №.
+- Node 8 is a candidate flow **constraint** (together with 5): Wait Time
+  accumulates here (the approver's queue) along with returns.
+- Two different times in the node: **queue wait time** (the item waits for the
+  approver) and **touch time** (the review itself, usually minutes). If the first
+  is many times larger than the second, the constraint is not in the review method but in the role's
+  load or the number of approvers.
+- Measurement: entry date "pending approval" → decision date; share returned; cycle #.
 
-## 6. Критика собственной модели узла (по заданию R2.6:Tasks4 п.2)
+## 6. Critique of my own node model (per R2.6:Tasks4 item 2)
 
-1. Не проверено, один ли approver на домен - если несколько, узел надо
-   разделить или описать правило выбора.
-2. M5 (эскалация) не формализован - именно там, по опыту, уходят недели.
-3. Approver, «дописывающий сам», - реальный паттерн; модель его запрещает,
-   практика - нет. Нужно либо разрешить явно (тогда это другая роль в том
-   же узле), либо ловить чеклистом.
-4. Не описано, что происходит при изменении датасета-референта после
-   approval (схема изменилась) - это повторный вход в узел или новый объект
-   (темпоральная часть, R2.6:1-2)? Открыто.
+1. Not verified whether there is one approver per domain - if several, the node must
+   be split or the selection rule described.
+2. M5 (escalation) is not formalised - this is exactly where, from experience, weeks are lost.
+3. An approver who "fills it in themselves" is a real pattern; the model forbids it,
+   practice does not. Either allow it explicitly (then it is a different role in the same
+   node) or catch it with the checklist.
+4. Not described what happens when the referent dataset changes after
+   approval (schema changed) - is that a re-entry into the node or a new object
+   (temporal part, R2.6:1-2)? Open.
 
-## 7. Состояние объекта в результате взаимодействия
+## 7. Object state as a result of the interaction
 
-По R2.6:7 различаем **состояние объекта** и **состояние работы**: «работа
-завершена, когда есть нужный объект в нужном состоянии; такт работы может
-завершиться и без этого». Поэтому описание - в два слоя, а затем по FPF
-`A.15.PROD:4.6` - как утверждение о состоянии (state-satisfaction claim).
+Per R2.6:7 we distinguish the **object state** and the **work state**: "work
+is complete when the needed object is in the needed state; a work cycle can
+finish without that". So the description has two layers, then per FPF
+`A.15.PROD:4.6` - as a state-satisfaction claim.
 
-### 7.1. Целевое состояние объекта: «запись утверждена»
+### 7.1. Target object state: "item approved"
 
-Каталожная запись о датасете X должна находиться в состоянии
-**«утверждена» (approved)**, что означает одновременно:
+The catalog item about dataset X must be in the state
+**"approved"**, which means all of the following at once:
 
-| Компонент состояния | Значение в целевом состоянии | Как наблюдаем (событие) |
+| State component | Value in the target state | How we observe it (event) |
 |---|---|---|
-| Статус workflow | `approved` | поле статуса записи; запись ушла из очереди approver'а |
-| Решение approver'а | зафиксировано, с датой и автором | запись в workflow history |
-| Чеклист готовности | заполнен **двумя** ролями, строки A-C без «нет», D1 и D3 без «нет» | экземпляр чеклиста с отметками steward'а и approver'а |
-| Содержимое записи | **не изменено** в узле (описание, термины, владелец, DQ-правила те же, что на входе) | diff записи на входе и выходе пуст, кроме статуса и решения |
-| Связь с правилом идентичности | запись признана кандидатом на состояние «опубликовано всем аудиториям» (B1) | отметка B1 = да |
-| Готовность к следующему узлу | права публикации настроены (D1), чувствительность отмечена (D3) | запись видна в тестовом self-service; классификация PII стоит |
+| Workflow status | `approved` | item status field; item left the approver's queue |
+| Approver's decision | recorded, with date and author | entry in workflow history |
+| Readiness checklist | filled in by **two** roles, rows A-C without "no", D1 and D3 without "no" | checklist instance with the steward's and approver's marks |
+| Item content | **unchanged** in the node (description, terms, owner, DQ rules same as at entry) | diff of the item at entry and exit is empty except for status and decision |
+| Link to the identity rule | item recognised as a candidate for the state "published to all audiences" (B1) | B1 mark = yes |
+| Readiness for the next node | publication permissions set (D1), sensitivity marked (D3) | item visible in test self-service; PII classification set |
 
-Коротко: **утверждённая запись = запись, чьё содержимое признано полным по
-чеклисту, с зафиксированным решением, без правок в узле, готовая к
-автоматической публикации.**
+In short: **an approved item = an item whose content is recognised as complete against the
+checklist, with a recorded decision, with no edits in the node, ready for
+automatic publication.**
 
-Чего в целевом состоянии **нет** (чтобы не путать с соседними):
-- не «опубликована» - это состояние 9, наступает автоматически после, по
-  `E.24.PUB` это отдельное событие доступности;
-- не «закаталогизирован датасет» - это правило идентичности, выполняется
-  только после публикации всем аудиториям;
-- не «владелец назначен» - это состояние 5, в узле 8 оно только
-  *проверяется* (B3), а не достигается.
+What the target state is **not** (so as not to confuse it with neighbours):
+- not "published" - that is state 9, reached automatically afterwards; per
+  `E.24.PUB` it is a separate availability event;
+- not "dataset catalogued" - that is the identity rule, satisfied
+  only after publication to all audiences;
+- not "owner assigned" - that is state 5; in node 8 it is only
+  *checked* (B3), not achieved.
 
-### 7.2. Три исхода взаимодействия
+### 7.2. Three outcomes of the interaction
 
-| Исход | Состояние объекта после | Состояние работы | Что дальше |
+| Outcome | Object state after | Work state | What next |
 |---|---|---|---|
-| **Успех** | «утверждена» (как в 7.1) | работа узла завершена, такт = 1 (или N, если были возвраты) | автоматический переход в 9 |
-| **Возврат** (returned) | «на доработке»: статус `returned`, список строк чеклиста с «нет», содержимое не изменено | **такт завершён, работа не завершена** (R2.6:7); такт № +1 | запись идёт в 4-6 к steward'у; при такте ≥2 - вопрос «менять исполнителя или метод» (M4) |
-| **Зависание** (ни того, ни другого) | «на утверждении» без решения | работа не начата или прервана; растёт Wait Time, не Touch Time | ограничение потока (§5); эскалация M5, если причина - B3 |
+| **Success** | "approved" (as in 7.1) | node work complete, cycle = 1 (or N if there were returns) | automatic transition to 9 |
+| **Return** (returned) | "in rework": status `returned`, list of checklist rows with "no", content unchanged | **cycle finished, work not complete** (R2.6:7); cycle # +1 | item goes to 4-6 to the steward; at cycle ≥2 - the question "change the performer or the method" (M4) |
+| **Stall** (neither) | "pending approval" with no decision | work not started or interrupted; Wait Time grows, not Touch Time | flow constraint (§5); escalation M5 if the cause is B3 |
 
-Третий исход важно называть отдельно: по R2.6:2 запись в этот момент
-одновременно «в работе» (WIP) и «ожидает» - и именно это состояние чаще
-всего не видно в отчётах, потому что статус «на утверждении» выглядит как
-нормальный.
+The third outcome must be named separately: per R2.6:2 the item at this point is
+both "in progress" (WIP) and "waiting" - and this is exactly the state most
+often invisible in reports, because the status "pending approval" looks
+normal.
 
-### 7.3. То же на языке FPF (A.15.PROD:4.6)
+### 7.3. The same in FPF terms (A.15.PROD:4.6)
 
-Утверждение о состоянии (state-satisfaction claim) для узла 8:
+State-satisfaction claim for node 8:
 
-- `completionSubject` - каталожная запись о датасете X (не датасет, не
-  работа approver'а);
-- `completionBoundary` - момент фиксации решения approved в workflow
-  (дата/время из history);
-- `productionCompletionCriterion` - «запись удовлетворяет чеклисту
-  готовности: A-C без „нет", D1/D3 без „нет", содержимое не изменено в узле»;
-- факты границы - заполненный экземпляр чеклиста + запись в history.
+- `completionSubject` - the catalog item about dataset X (not the dataset, not the
+  approver's work);
+- `completionBoundary` - the moment the approved decision is recorded in the workflow
+  (date/time from history);
+- `productionCompletionCriterion` - "the item satisfies the readiness
+  checklist: A-C without 'no', D1/D3 without 'no', content unchanged in the node";
+- boundary facts - the filled-in checklist instance + the history entry.
 
-Отдельно - утверждение о закрытии работы (production-work-completion
-claim): работа «утверждение записи X» закрыта **потому что** approval
-workflow по регламенту команды считает решение approved закрывающим
-событием (closure governor). Без этого второго утверждения, по A.15.PROD,
-«запись в состоянии approved» ещё не означает «работа узла завершена» -
-например, если регламент требует двух approver'ов, а решение одно.
+Separately - the production-work-completion
+claim: the work "approval of item X" is closed **because** the approval
+workflow, per the team's regulation, treats the approved decision as the closing
+event (closure governor). Without this second claim, per A.15.PROD,
+"item in state approved" does not yet mean "node work complete" -
+for example, if the regulation requires two approvers and there is only one decision.
 
-Это даёт практический тест для чеклиста: строка C3 («решение по
-чеклисту, не по переписке») - и есть закрывающее правило в явном виде.
+This gives a practical test for the checklist: row C3 ("decision against the
+checklist, not via email") is the closure rule in explicit form.
 
-## 8. Контрольные вопросы узла 8
+## 8. Control questions of node 8
 
-По R2.6:3 контрольные вопросы - последний шаг метода составления чеклиста:
-они должны позволять оценить, (а) выполнены ли действия по методам M1-M5 и
-(б) пришёл ли объект в нужные состояния; по заданию - ещё и (в) снять
-измерения изменений (R2.6:4). Вопросы сформулированы так, чтобы ответ был
-наблюдаем в системе, а не «по ощущению». Три группы.
+Per R2.6:3, control questions are the last step of the checklist-building method:
+they must allow assessing (a) whether actions per methods M1-M5 were performed and
+(b) whether the object reached the needed states; per the assignment also (c) taking
+measurements of change (R2.6:4). The questions are phrased so that the answer is
+observable in the system, not "by feel". Three groups.
 
-### 8.1. Выполнены ли действия по методу (вопросы к работе approver'а)
+### 8.1. Were the method actions performed (questions about the approver's work)
 
-| # | Вопрос | Метод | Ответ наблюдаем в |
+| # | Question | Method | Answer observable in |
 |---|---|---|---|
-| Q1 | Открыта ли запись и приложенный steward'ом чеклист - до того, как принято решение? | M1 | история просмотра / время между открытием задачи и решением > 0 |
-| Q2 | Отмечены ли approver'ом **все** строки A-D, а не только «проблемные»? | M1 | экземпляр чеклиста: нет пустых клеток в колонке approver'а |
-| Q3 | Проверена ли строка B1 - признаёт ли approver запись кандидатом на «опубликовано всем аудиториям», а не на «есть в каталоге»? | M3 | отметка B1 с подписью approver'а |
-| Q4 | Если решение - returned: названы ли номера строк, по которым расхождение, и нет ли письма вместо них? | M2 | поле «строки: …» в решении заполнено; переписки по записи в почте нет |
-| Q5 | Если решение - approved: нет ли ни одного «нет» в A-C и в D1/D3? | M2 | экземпляр чеклиста |
-| Q6 | Проставлен ли номер такта в экземпляре чеклиста? | M4 | поле «Такт №» |
-| Q7 | Если B3 не выполнено (владелец не подтвердил) - создана ли задача на эскалацию, а не просто оставлена запись в очереди? | M5 | задача владельцу/Governance существует, дата создания |
-| Q8 | Не редактировал ли approver содержимое записи в узле (смена роли внутри узла, R2.6:1)? | граница роли | diff записи на входе/выходе: изменились только статус и решение |
+| Q1 | Were the item and the steward's attached checklist opened before the decision was made? | M1 | view history / time between task opening and decision > 0 |
+| Q2 | Did the approver mark **all** rows A-D, not only the "problematic" ones? | M1 | checklist instance: no empty cells in the approver's column |
+| Q3 | Was row B1 checked - does the approver recognise the item as a candidate for "published to all audiences", not "is in the catalog"? | M3 | B1 mark signed by the approver |
+| Q4 | If the decision is returned: are the row numbers with discrepancies named, and is there no email instead of them? | M2 | field "rows: …" in the decision filled in; no email thread about the item |
+| Q5 | If the decision is approved: is there not a single "no" in A-C and in D1/D3? | M2 | checklist instance |
+| Q6 | Is the cycle number entered in the checklist instance? | M4 | field "Cycle #" |
+| Q7 | If B3 is not met (owner did not confirm) - was an escalation task created, rather than the item simply left in the queue? | M5 | task to the owner/Governance exists, creation date |
+| Q8 | Did the approver edit the item content in the node (role switch inside the node, R2.6:1)? | role boundary | item diff at entry/exit: only status and decision changed |
 
-### 8.2. Пришёл ли объект в нужное состояние (вопросы к записи)
+### 8.2. Did the object reach the needed state (questions about the item)
 
-| # | Вопрос | Состояние | Ответ наблюдаем в |
+| # | Question | State | Answer observable in |
 |---|---|---|---|
-| Q9 | Статус записи = approved? | 7.1 | поле статуса |
-| Q10 | Есть ли в workflow history запись о решении с датой и автором? | 7.1 | history |
-| Q11 | Совпадает ли содержимое записи на выходе с содержимым на входе (кроме статуса и решения)? | 7.1 | diff |
-| Q12 | Видна ли запись тестовой группе self-service (D1 = да)? | готовность к 9 | тестовый просмотр |
-| Q13 | Отмечена ли чувствительность данных (D3 = да)? | готовность к 9 | поле классификации PII |
-| Q14 | Ушла ли запись из очереди approver'а (нет «зависания», исход 3 из 7.2)? | 7.2 | очередь workflow |
-| Q15 | Если returned - находится ли запись у steward'а в состоянии «на доработке», а не «на утверждении»? | 7.2 | статус + исполнитель задачи |
-| Q16 | Если approved - произошла ли автоматическая публикация (состояние 9) в ожидаемый срок? | граница узла | дата видимости в self-service; это уже проверка **следующего** узла, но без неё approved «висит» |
+| Q9 | Item status = approved? | 7.1 | status field |
+| Q10 | Is there an entry about the decision with date and author in workflow history? | 7.1 | history |
+| Q11 | Does the item content at exit match the content at entry (except status and decision)? | 7.1 | diff |
+| Q12 | Is the item visible to the self-service test group (D1 = yes)? | readiness for 9 | test view |
+| Q13 | Is data sensitivity marked (D3 = yes)? | readiness for 9 | PII classification field |
+| Q14 | Did the item leave the approver's queue (no "stall", outcome 3 of 7.2)? | 7.2 | workflow queue |
+| Q15 | If returned - is the item with the steward in state "in rework", not "pending approval"? | 7.2 | status + task assignee |
+| Q16 | If approved - did the automatic publication (state 9) happen within the expected time? | node boundary | date of visibility in self-service; this is already a check of the **next** node, but without it approved "hangs" |
 
-### 8.3. Измерения изменений (R2.6:4, TameFlow из R2.6:2)
+### 8.3. Measurements of change (R2.6:4, TameFlow from R2.6:2)
 
-Вопросы, ответ на которые - число, снимаемое по каждой записи и
-агрегируемое по потоку на Week Close.
+Questions whose answer is a number, taken per item and
+aggregated over the flow at Week Close.
 
-| # | Вопрос | Величина | Откуда | Зачем (R2.6:4) |
+| # | Question | Quantity | Source | Why (R2.6:4) |
 |---|---|---|---|---|
-| Q17 | Сколько времени запись ждала в очереди от «на утверждении» до первого открытия approver'ом? | Wait Time (очередь) | history: submit → first open | ограничение потока в загрузке роли или числе approver'ов |
-| Q18 | Сколько времени заняло само ревью - от открытия до решения? | Touch Time | history: open → decision | скорость работы по методу M1-M2 |
-| Q19 | Сколько всего времени запись провела в узле 8 (все такты вместе)? | Flow Time узла | history: первый submit → финальный approved | скорость до результата по узлу |
-| Q20 | Какой номер такта у финального approved? | число тактов | экземпляр чеклиста | работа vs такт работы (R2.6:7); такт ≥2 - сигнал менять исполнителя или метод |
-| Q21 | Какие строки чеклиста дали «нет» в возвратах? | распределение «нет» по строкам | комментарии к «нет» | где метод, а не исполнитель; самые частые строки - кандидаты на перенос проверки в узлы 4-6 |
-| Q22 | Сколько возвратов сделано без указания строки? | число | решения approver'а | полнота чеклиста (сигнал добавить строку) |
-| Q23 | Сколько эскалаций (M5) создано и сколько дней каждая открыта? | число, длительность | задачи эскалации | скрытая/стихийная работа узла (R1.3:3), доля в Wait Time |
-| Q24 | Какая доля записей потока прошла узел с такта 1? | % | агрегат Q20 по потоку | работает ли чеклист как метод (сравнение до/после внедрения) |
-| Q25 | Каковы медиана и 85-й перцентиль Flow Time узла по потоку за неделю? | перцентили | агрегат Q19 | прогноз «когда будет утверждено» распределением, не средним (Vacanti - внешняя связь, урок только отсылает) |
-| Q26 | Как изменились Q24-Q25 после внедрения чеклиста относительно базового замера? | темп/ускорение (R2.6:4, шаг 6) | два периода | оценить воздействие на ограничение; сравнивать воздействия через рывок (шаг 7) |
+| Q17 | How long did the item wait in the queue from "pending approval" to the approver's first opening? | Wait Time (queue) | history: submit → first open | flow constraint in the role's load or number of approvers |
+| Q18 | How long did the review itself take - from opening to decision? | Touch Time | history: open → decision | speed of work by method M1-M2 |
+| Q19 | How much time in total did the item spend in node 8 (all cycles together)? | node Flow Time | history: first submit → final approved | speed to result for the node |
+| Q20 | What is the cycle number of the final approved? | number of cycles | checklist instance | work vs work cycle (R2.6:7); cycle ≥2 - a signal to change the performer or the method |
+| Q21 | Which checklist rows produced "no" in returns? | distribution of "no" by row | comments on "no" | where the method, not the performer, is the issue; the most frequent rows are candidates for moving the check into nodes 4-6 |
+| Q22 | How many returns were made without a row reference? | number | approver's decisions | checklist completeness (signal to add a row) |
+| Q23 | How many escalations (M5) were created and how many days was each open? | number, duration | escalation tasks | hidden/spontaneous work of the node (R1.3:3), share in Wait Time |
+| Q24 | What share of the flow's items passed the node in cycle 1? | % | aggregate of Q20 over the flow | does the checklist work as a method (before/after rollout comparison) |
+| Q25 | What are the median and 85th percentile of the node's Flow Time over the flow for the week? | percentiles | aggregate of Q19 | forecast "when will it be approved" by distribution, not by average (Vacanti - external link, the lesson only refers to it) |
+| Q26 | How did Q24-Q25 change after the checklist rollout relative to the baseline? | rate/acceleration (R2.6:4, step 6) | two periods | assess the impact on the constraint; compare impacts via jerk (step 7) |
 
-**Базовый замер (baseline):** до того, как чеклист внедрён, снять Q17-Q25 по
-последним 10-20 записям из workflow history - иначе Q26 не с чем сравнивать.
-Это и есть «первый замер» из §8 модели путешествия.
+**Baseline measurement:** before the checklist is rolled out, take Q17-Q25 for
+the last 10-20 items from workflow history - otherwise Q26 has nothing to compare against.
+This is the "first measurement" from §8 of the journey model.
 
-### 8.4. Как вопросы раскладываются по ролям и моментам
+### 8.4. How the questions map to roles and moments
 
-| Когда | Кто | Вопросы |
+| When | Who | Questions |
 |---|---|---|
-| Перед решением | approver | Q1-Q3, Q6-Q8 |
-| При решении | approver | Q4-Q5 |
-| Сразу после решения | approver (или автомат) | Q9-Q15 |
-| На следующий день | steward / автомат | Q16 |
-| На Week Close | владелец метода (PO / Governance Lead) | Q17-Q26 агрегатом по потоку |
+| Before the decision | approver | Q1-Q3, Q6-Q8 |
+| At the decision | approver | Q4-Q5 |
+| Right after the decision | approver (or automation) | Q9-Q15 |
+| Next day | steward / automation | Q16 |
+| At Week Close | method owner (PM / Governance Lead) | Q17-Q26 aggregated over the flow |
 
-Q1-Q16 - в экземпляр чеклиста (операционный экзокортекс approver'а, R2.6:3:
-там, где заполняют); Q17-Q26 - в отчёт по потоку (список/дашборд), не в
-чеклист отдельной записи.
+Q1-Q16 go into the checklist instance (the approver's operational exocortex, R2.6:3:
+where it is filled in); Q17-Q26 go into the flow report (list/dashboard), not into
+the checklist of an individual item.
 
 ---
 
-Источники: R2.6:1, R2.6:2, R2.6:3, R2.6:4, R2.6:5, R2.6:7, R2.6:Tasks4
+Sources: R2.6:1, R2.6:2, R2.6:3, R2.6:4, R2.6:5, R2.6:7, R2.6:Tasks4
 (docs-courses, `professional/modeling-1/06-...`); FPF Library `A.15.PROD`
-(https://fpf.tools/A.15.PROD - ссылки на A.13, A.3.1, A.15.1, A.3.4),
-`E.24.PUB` (https://fpf.tools/E.24.PUB:4), снапшот
-20261015T182921Z-219aa77d287d7d2d. Создан: 2026-10-18.
+(https://fpf.tools/A.15.PROD - links to A.13, A.3.1, A.15.1, A.3.4),
+`E.24.PUB` (https://fpf.tools/E.24.PUB:4), snapshot
+20261015T182921Z-219aa77d287d7d2d. Created: 2026-10-18. Translated to English: 2026-11-05 (content unchanged; "Product Owner" → "Product Manager" per the user's correction of 24.10).
