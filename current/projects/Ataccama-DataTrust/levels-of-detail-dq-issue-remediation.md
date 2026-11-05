@@ -2,65 +2,65 @@
 type: model
 date: 2026-11-05
 course: R3.4:7, R3.4:Mod3
-object: Система контроля устранения проблем качества данных
-status: v0.2 (проверено по FPF Library, снапшот 20261105T084056Z)
+object: DQ Issue Remediation Control System
+status: v0.2 (checked against FPF Library, snapshot 20261105T084056Z)
 ---
 
-# Уровни детализации описания: система контроля устранения проблем качества данных
+# Levels of detail: DQ Issue Remediation Control System
 
-> Источник заданий: MimEcoSys/docs, `professional/modeling-2/04-practice-of-creating-models/12-levels-of-detail-in-descriptions.md` и `13-defining-description-levels-of-detail.md` (commit faed795, 2026-11-04).
-> Описание: чек-лист-шаблон «How good look like for DQ Issue Remediation» (описание в классах, типовой представитель). Заказчик: продукт-менеджер; адресат: проектная команда внедрения.
+> Assignment source: MimEcoSys/docs, `professional/modeling-2/04-practice-of-creating-models/12-levels-of-detail-in-descriptions.md` and `13-defining-description-levels-of-detail.md` (commit faed795, 2026-11-04).
+> Description: checklist template "How good looks like for DQ Issue Remediation" (a description of classes, typical representative). Customer: product manager; recipient: implementation project team.
 
-Типы (R3.2): КФО - класс функциональных объектов; КМО - класс материальных (конструктивных) объектов; ТЧ - темпоральная часть; О - описание.
+Types (R3.2): CFO - class of functional objects; CMO - class of material (constructive) objects; TP - temporal part; D - description.
 
-## А. Функциональное разбиение
+## A. Functional breakdown
 
-| Уровень 0 | Уровень 1 | Уровень 2 | Уровень 3 |
+| Level 0 | Level 1 | Level 2 | Level 3 |
 |---|---|---|---|
-| Служба управления данными организации :: КФО | Система контроля устранения проблем качества данных :: КФО | Подсистема обнаружения проблем :: КФО | — (дальше - чёрный ящик движка проверок) |
-| | | Подсистема учёта и маршрутизации проблем :: КФО | — |
-| | | Подсистема координации исправления :: КФО | — |
+| Data management function of the organisation :: CFO | DQ Issue Remediation Control System :: CFO | Issue detection subsystem :: CFO | — (below: black box of the check engine) |
+| | | Issue registration and routing subsystem :: CFO | — |
+| | | Remediation coordination subsystem :: CFO | — |
 
-## Б. Конструктивное разбиение (из чего собрана та же система)
+## B. Constructive breakdown (what the same system is built from)
 
-| Уровень 0 | Уровень 1 | Уровень 2 | Уровень 3 |
+| Level 0 | Level 1 | Level 2 | Level 3 |
 |---|---|---|---|
-| Организация :: КМО | Система контроля устранения проблем качества данных :: КМО | Настроенная платформа DG/DQ :: КМО | Модуль DQ :: КМО :: КФО (подсистема обнаружения) |
-| | | | Модуль реестра и workflow :: КМО :: КФО (подсистема учёта) |
-| | | Команда DQ :: КМО | Член команды :: КМО :: КФО (роль: стюард данных) |
-| | | | Член команды :: КМО :: КФО (роль: владелец проблемы) |
+| Organisation :: CMO | DQ Issue Remediation Control System :: CMO | Configured DG/DQ platform :: CMO | DQ module :: CMO :: CFO (detection subsystem) |
+| | | | Issue register and workflow module :: CMO :: CFO (registration subsystem) |
+| | | DQ team :: CMO | Team member :: CMO :: CFO (role: data steward) |
+| | | | Team member :: CMO :: CFO (role: issue owner) |
 
-## В. Разбиение работы (что система делает во времени)
+## C. Work breakdown (what the system does over time)
 
-| Уровень 1 | Уровень 2 |
+| Level 1 | Level 2 |
 |---|---|
-| Цикл обработки одной проблемы :: ТЧ (работа системы) | Обнаружение (прогон проверки) :: ТЧ |
-| | Назначение :: ТЧ |
-| | Исправление :: ТЧ |
-| | Повторная проверка :: ТЧ |
+| Handling cycle of one issue :: TP (work of the system) | Detection (check run) :: TP |
+| | Assignment :: TP |
+| | Remediation :: TP |
+| | Verification :: TP |
 
-## Г. Используемые описания (не части системы)
+## D. Descriptions used (not parts of the system)
 
-Правило качества данных :: О (порог - его часть), запись о проблеме :: О, модель жизненного цикла :: О, соглашение о сроках :: О.
+DQ rule :: D (the threshold is part of it), issue record :: D, issue lifecycle model :: D, remediation SLA agreement :: D.
 
-## Обоснование выбора уровней
+## Rationale for the chosen levels
 
-- **Уровень 0** нужен из-за прагматической цели заказчика - «готова играть свою роль в надсистеме»: видно, какую функцию система выполняет для организации.
-- **Уровень 1** - система, реализующая устранение (не сам процесс; R3.4:7, FPF A.1).
-- **Уровень 2** - уровень работы адресата: настройка обнаружения, реестра и маршрутизации, назначение людей на роли.
-- **Уровень 3** - последний прозрачный уровень: модули платформы и люди в ролях - то, что проверяют пункты чек-листа.
-- **Ниже не идём**: устройство движка проверок и исправление отдельных записей в системах-источниках для адресата - чёрный ящик. Тест «говорения»: «проверили, что у каждой проблемы назначен владелец» - осмысленно; «проверили план выполнения SQL-запроса правила» - уже нет.
-- **Не части, но контекст**: системы-источники, наборы и элементы данных - то, с чем работает система. Пойдут в R3.4:Mod5 как отношения.
+- **Level 0** is needed because of the customer's pragmatic goal - "ready to play its role in the supersystem": it shows which function the system performs for the organisation.
+- **Level 1** is the system that performs remediation control, not the process itself (R3.4:7, FPF A.1).
+- **Level 2** is where the recipient works: configuring detection, the register and routing, assigning people to roles.
+- **Level 3** is the last transparent level: platform modules and people in roles - what the checklist items verify.
+- **Not going lower**: the internals of the check engine and fixing individual records in source systems are a black box for the recipient. "Speaking" test: "we checked that every issue has an assigned owner" makes sense; "we checked the execution plan of the rule's SQL query" no longer does.
+- **Not parts, but context**: source systems, datasets and data elements are what the system works on. They go to R3.4:Mod5 as relations.
 
-## Проверка по FPF (v0.1 → v0.2)
+## FPF check (v0.1 → v0.2)
 
-1. Описания (правило, порог, запись, модель ЖЦ, SLA) не являются компонентами системы - вынесены в блок Г (A.6.H:4.4).
-2. Роли - не части команды: части - люди, роль указана как тип (A.2).
-3. Работа (цикл, прогон проверки, исправление) - не фаза системы, а отдельное разбиение работы (A.6.H:4.4, A.15.1).
-4. «Закрытие» - состояние, не темпоральная часть; убрано из разбиения, пойдёт в атрибуты (R3.4:Mod5).
-5. Функциональная и конструктивная структуры разделены (C.30.ASV:4.5a).
-6. Уровень 0: «организация» / «служба управления данными» вместо «Data Governance» как практики (A.1).
+1. Descriptions (rule, threshold, record, lifecycle model, SLA) are not components of the system - moved to block D (A.6.H:4.4).
+2. Roles are not parts of the team: the parts are people, the role is given as a type (A.2).
+3. Work (cycle, check run, remediation) is not a phase of the system but a separate work breakdown (A.6.H:4.4, A.15.1).
+4. "Closure" is a state, not a temporal part; removed from the breakdown, goes to attributes (R3.4:Mod5).
+5. Functional and constructive structures are kept separate (C.30.ASV:4.5a).
+6. Level 0: "organisation" / "data management function" instead of "Data Governance" as a practice (A.1).
 
-## Для ЛК (R3.4:Mod3)
+## For the LK form (R3.4:Mod3)
 
-В таблицу ЛК вносятся разбиения А и Б; В и Г - примечанием или в посте. Если нужно одно разбиение - Б (адресату важнее, кто и на чём работает).
+Breakdowns A and B go into the LK table; C and D as a note or in the post. If only one breakdown is allowed - B (the recipient cares most about who works on what).
