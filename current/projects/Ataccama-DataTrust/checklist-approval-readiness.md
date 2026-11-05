@@ -1,143 +1,143 @@
-# Чеклист готовности каталожной записи к утверждению - v0.1
+# Catalog item approval-readiness checklist - v0.1
 
-**Статус:** черновик v0.1, 18.10.2026. Построен по методу R2.6:3 (кейс → роль
-→ онтология объектов внимания → состояния → действия → контрольные вопросы),
-в форме R2.6:2 «предмет метода - целевое состояние» (как в авиационном
-чеклисте: «заглушки - сняты»), с опорой на FPF `A.15.PROD` (три вопроса
-производства) и `E.24.PUB` (публикация как отдельное событие). Источник
-состояний - `journey-catalogued-dataset.md` v0.3.
+**Status:** draft v0.1, 2026-10-18. Built with the R2.6:3 method (case → role
+→ ontology of objects of attention → states → actions → control questions),
+in the R2.6:2 form "method subject - target state" (as in an aviation
+checklist: "covers - removed"), based on FPF `A.15.PROD` (three production
+questions) and `E.24.PUB` (publication as a separate event). Source of the
+states - `journey-catalogued-dataset.md` v0.3.
 
-**Что это закрывает:** узел 8 модели путешествия (approval workflow) - место,
-где работа чаще всего уходит в такты «вернул на доработку». Чеклист заменяет
-переписку: steward проверяет сам до отправки, approver проверяет по тем же
-строкам.
+**What it closes:** node 8 of the journey model (approval workflow) - the place
+where work most often turns into "returned for rework" cycles. The checklist replaces
+email threads: the steward checks before submitting, the approver checks against the same
+rows.
 
 ---
 
-## 1. Кейс, роли, где живёт
+## 1. Case, roles, where it lives
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| **Кейс / сценарий** | Отправка каталожной записи о датасете на утверждение в системе DG/DQ и её проверка approver'ом |
-| **Роль-исполнитель** (заполняет) | Data Steward - перед нажатием «Submit for approval» |
-| **Роль-проверяющий** (сверяет) | Approver (Data Governance Lead) - при ревью |
-| **Объект путешествия** | Каталожная запись о датасете X (эпистема); датасет - референт |
-| **Целевое состояние после кейса** | Запись - «утверждена» (approved); дальше автоматически - «опубликована» (self-service; с запуском MCP - и агентам) |
-| **Где живёт чеклист** (R2.6:3: в операционном экзокортексе исполнителя) | Вариант A: кастомные атрибуты/чеклист-поле в самой карточке записи DG/DQ (0 кликов). Вариант B: шаблон в SharePoint `IWE-Work/memory/Checklists/`, ссылка из описания workflow-шага. Не в отдельной «системе контроля» |
-| **Регламент** (отдельно от чеклиста, R2.6:3) | Инструкция каталогизации команды - чеклист ссылается на неё, не повторяет |
+| **Case / scenario** | Submitting a catalog item about a dataset for approval in the DG/DQ system and its review by the approver |
+| **Performer role** (fills in) | Data Steward - before clicking "Submit for approval" |
+| **Reviewer role** (checks) | Approver (Data Governance Lead) - during review |
+| **Journeying object** | Catalog item about dataset X (episteme); the dataset is the referent |
+| **Target state after the case** | Item "approved"; then automatically "published" (self-service; once MCP launches, also to agents) |
+| **Where the checklist lives** (R2.6:3: in the performer's operational exocortex) | Option A: custom attributes / checklist field in the item card in DG/DQ (0 clicks). Option B: template in SharePoint `IWE-Work/memory/Checklists/`, linked from the workflow step description. Not in a separate "control system" |
+| **Regulation** (separate from the checklist, R2.6:3) | The team's cataloguing instruction - the checklist refers to it, does not repeat it |
 
-## 2. Онтология: объекты внимания
+## 2. Ontology: objects of attention
 
-Крупные объекты и объекты следующего уровня (R2.6:3):
+Major objects and next-level objects (R2.6:3):
 
-- **Каталожная запись** → описание, классификация/термины, владелец, DQ-правила, lineage-связь, статус workflow
-- **Датасет (референт)** → физический актив в источнике, доступ, схема
-- **Владелец** → роль, человек, подтверждение
-- **Правила качества** → набор правил, результат прогона
-- **Аудитория публикации** → self-service, (MCP), права доступа
-- **Утверждающий** → approver, чеклист полноты, решение
+- **Catalog item** → description, classification/terms, owner, DQ rules, lineage link, workflow status
+- **Dataset (referent)** → physical asset in the source, access, schema
+- **Owner** → role, person, confirmation
+- **Quality rules** → rule set, run result
+- **Publication audience** → self-service, (MCP), access rights
+- **Approver** → approver, completeness checklist, decision
 
-## 3. Чеклист в классах (шаблон)
+## 3. Checklist in classes (template)
 
-Форма «предмет - целевое состояние», отметка «да / нет / н/п». Группы
-соответствуют трём вопросам A.15.PROD плюс публикация E.24.PUB.
+Form "subject - target state", mark "yes / no / n/a". The groups
+correspond to the three A.15.PROD questions plus E.24.PUB publication.
 
-### Блок A. Работа каталогизации выполнена по частям (A.15.PROD, вопрос 1: какая работа)
+### Block A. Cataloguing work done part by part (A.15.PROD, question 1: which work)
 
-| # | Предмет метода | Целевое состояние | Как узнаём (событие) | Да/Нет/н/п |
+| # | Method subject | Target state | How we know (event) | Yes/No/n/a |
 |---|---|---|---|---|
-| A1 | Датасет-референт | существует и доступен в источнике | скан источника успешен, схема прочитана | |
-| A2 | Метаданные записи | импортированы и актуальны | дата последнего скана ≤ порога команды (напр. 30 дней) | |
-| A3 | Профиль данных | построен | profiling job завершён, статистики в карточке | |
-| A4 | Описание записи | заполнено человеком, не автогенерацией | поле Description непустое, отличается от технического имени | |
-| A5 | Термины глоссария / классификация | назначены | ≥1 бизнес-термин привязан, классификация выбрана | |
-| A6 | Правила качества | привязаны, первый прогон есть | ≥1 DQ-правило, результат прогона виден | |
-| A7 | Lineage-связь | создана (не блокирует) | upstream/downstream видны **или** явная пометка «lineage: н/п» | н/п допустимо |
+| A1 | Referent dataset | exists and is accessible in the source | source scan successful, schema read | |
+| A2 | Item metadata | imported and current | date of last scan ≤ team threshold (e.g., 30 days) | |
+| A3 | Data profile | built | profiling job finished, statistics in the card | |
+| A4 | Item description | written by a human, not auto-generated | Description field not empty, differs from the technical name | |
+| A5 | Glossary terms / classification | assigned | ≥1 business term linked, classification selected | |
+| A6 | Quality rules | bound, first run exists | ≥1 DQ rule, run result visible | |
+| A7 | Lineage link | created (non-blocking) | upstream/downstream visible **or** explicit mark "lineage: n/a" | n/a allowed |
 
-### Блок B. Сущность определена (A.15.PROD, вопрос 2: когда существует)
+### Block B. Entity defined (A.15.PROD, question 2: when it exists)
 
-| # | Предмет метода | Целевое состояние | Как узнаём | Да/Нет |
+| # | Method subject | Target state | How we know | Yes/No |
 |---|---|---|---|---|
-| B1 | Правило идентичности «закаталогизированный датасет» | применено к этой записи | steward подтверждает: запись претендует на состояние «опубликовано всем аудиториям», а не «есть в каталоге» | |
-| B2 | Связь запись ↔ физический актив | однозначна | один актив, один ID, нет дублей-кандидатов по тому же активу | |
-| B3 | Владелец | назначен **и подтвердил** | поле Owner заполнено + есть подтверждение (не только назначение) | |
+| B1 | Identity rule "catalogued dataset" | applied to this item | steward confirms: the item claims the state "published to all audiences", not "is in the catalog" | |
+| B2 | Item ↔ physical asset link | unambiguous | one asset, one ID, no duplicate candidates for the same asset | |
+| B3 | Owner | assigned **and confirmed** | Owner field filled + confirmation exists (not just assignment) | |
 
-### Блок C. Критерий завершения и закрытие работы (A.15.PROD, вопрос 3)
+### Block C. Completion criterion and work closure (A.15.PROD, question 3)
 
-| # | Предмет метода | Целевое состояние | Как узнаём | Да/Нет |
+| # | Method subject | Target state | How we know | Yes/No |
 |---|---|---|---|---|
-| C1 | Чеклист (этот) | заполнен steward'ом полностью | все строки A-D отмечены, «нет» - с комментарием | |
-| C2 | Возвраты с прошлых тактов | закрыты | по каждому «returned» из workflow history есть ответ | |
-| C3 | Решение approver'а | принято по чеклисту, не по переписке | approver отмечает те же строки; расхождение = строка, не письмо | |
+| C1 | Checklist (this one) | fully filled in by the steward | all rows A-D marked, "no" with a comment | |
+| C2 | Returns from previous cycles | closed | every "returned" in workflow history has an answer | |
+| C3 | Approver's decision | made against the checklist, not via email | approver marks the same rows; a discrepancy = a row, not an email | |
 
-### Блок D. Публикация (E.24.PUB: доступность аудитории - отдельное событие)
+### Block D. Publication (E.24.PUB: availability to the audience is a separate event)
 
-| # | Предмет метода | Целевое состояние | Как узнаём | Да/Нет |
+| # | Method subject | Target state | How we know | Yes/No |
 |---|---|---|---|---|
-| D1 | Права доступа к записи | настроены для целевой аудитории | группа self-service видит запись в preview/тесте | |
-| D2 | Форма публикации | определена | self-service; с запуском MCP - отмечено, экспонируется ли агентам | |
-| D3 | Чувствительные данные | классифицированы до публикации | PII/конфиденциальность отмечены, доступ согласован | |
+| D1 | Item access rights | set for the target audience | self-service group sees the item in preview/test | |
+| D2 | Publication form | defined | self-service; once MCP launches - marked whether exposed to agents | |
+| D3 | Sensitive data | classified before publication | PII/confidentiality marked, access agreed | |
 
-## 4. Легенда (R2.6:3: чеклист без легенды не работает)
+## 4. Legend (R2.6:3: a checklist without a legend does not work)
 
-- **Да** - состояние достигнуто, событие наблюдается в системе.
-- **Нет** - не достигнуто; обязателен комментарий «что мешает» - это
-  становится строкой «такт работы» в учёте (R2.6:7).
-- **н/п** - неприменимо для этого датасета (разрешено только для A7 и D2;
-  для остальных «н/п» = «нет»).
-- **Submit for approval разрешён**, когда в блоках A-C нет «нет», в блоке D
-  нет «нет» по D1 и D3.
-- Approver отмечает те же строки; расхождение по строке - **единственный**
-  допустимый повод для return. Return без указания строки - сигнал, что
-  чеклист неполон: добавить строку, не писать письмо.
+- **Yes** - state reached, the event is observable in the system.
+- **No** - not reached; a comment "what blocks it" is mandatory - it
+  becomes a "work cycle" row in the records (R2.6:7).
+- **n/a** - not applicable for this dataset (allowed only for A7 and D2;
+  for the rest "n/a" = "no").
+- **Submit for approval is allowed** when blocks A-C have no "no" and block D
+  has no "no" on D1 and D3.
+- The approver marks the same rows; a discrepancy on a row is the **only**
+  acceptable reason for a return. A return without a row reference signals that
+  the checklist is incomplete: add a row, do not write an email.
 
-## 5. Экземпляр под конкретный объект (R2.6:2: чеклист печатается на индивид)
+## 5. Instance for a specific object (R2.6:2: the checklist is printed per individual)
 
 ```
-Чеклист готовности к утверждению
-Запись: ______________________ (ID ____)  Датасет-референт: ______________
-Домен: ______________  Steward: ______________  Дата отправки: __________
-Approver: ______________  Дата решения: __________  Такт №: ____
+Approval-readiness checklist
+Item: ______________________ (ID ____)  Referent dataset: ______________
+Domain: ______________  Steward: ______________  Submission date: __________
+Approver: ______________  Decision date: __________  Cycle #: ____
 
-A1 [ ]  A2 [ ]  A3 [ ]  A4 [ ]  A5 [ ]  A6 [ ]  A7 [ ] / н/п
+A1 [ ]  A2 [ ]  A3 [ ]  A4 [ ]  A5 [ ]  A6 [ ]  A7 [ ] / n/a
 B1 [ ]  B2 [ ]  B3 [ ]
 C1 [ ]  C2 [ ]  C3 [ ]
 D1 [ ]  D2 [ ]  D3 [ ]
-Комментарии к «нет»: _________________________________________________
-Решение: approved / returned (строки: ____)
+Comments on "no": _________________________________________________
+Decision: approved / returned (rows: ____)
 ```
 
-Первый экземпляр - продуктовый каталог (Фаза 1 roadmap): заполнить при
-следующей отправке на утверждение, это и будет первый замер тактов.
+First instance - product catalog (roadmap Phase 1): fill in at the
+next submission for approval; this will be the first cycle measurement.
 
-## 6. Что измерять по чеклисту (R2.6:4)
+## 6. What to measure with the checklist (R2.6:4)
 
-| Метрика | Откуда | Зачем |
+| Metric | Source | Why |
 |---|---|---|
-| Доля записей, прошедших approval с 1-го такта | «Такт №» в экземплярах | работает ли чеклист |
-| Самые частые строки с «нет» | комментарии к «нет» | где метод, а не исполнитель |
-| Returns без указания строки | решения approver'а | полнота чеклиста |
+| Share of items approved in the 1st cycle | "Cycle #" in instances | does the checklist work |
+| Most frequent rows with "no" | comments on "no" | where the method, not the performer, is the issue |
+| Returns without a row reference | approver's decisions | checklist completeness |
 
-## 7. Внедрение (R2.6:3)
+## 7. Rollout (R2.6:3)
 
-1. Обсудить с командой (steward'ы + approver) - 30 мин, чеклист изменится,
-   это нормально.
-2. Положить туда, где заполняют: карточка записи или шаг workflow, не
-   отдельный файл «где-то».
-3. Прогнать 5-7 раз на реальных записях прежде чем считать внедрённым;
-   напоминаний нужно больше, чем кажется.
-4. Контроль заполнения - в расписание руководителя (Week Close).
+1. Discuss with the team (stewards + approver) - 30 min; the checklist will change,
+   that is normal.
+2. Put it where it is filled in: the item card or the workflow step, not
+   a separate file "somewhere".
+3. Run it 5-7 times on real items before considering it rolled out;
+   more reminders are needed than it seems.
+4. Fill-in control - in the manager's schedule (Week Close).
 
-## 8. Открытые вопросы
+## 8. Open questions
 
-1. Позволяет ли система DG/DQ добавить чеклист как атрибуты карточки (вариант A) - или только SharePoint (вариант B)?
-2. Порог актуальности метаданных в A2 - 30 дней или иной?
-3. Нужна ли строка про SLA качества (DQ SLA, roadmap 2.4) - сейчас не включена, рано.
+1. Does the DG/DQ system allow adding the checklist as card attributes (option A) - or only SharePoint (option B)?
+2. Metadata currency threshold in A2 - 30 days or other?
+3. Is a row on the quality SLA needed (DQ SLA, roadmap 2.4) - not included now, too early.
 
 ---
 
-Источники: R2.6:2 «Чеклисты и смена состояний объектов», R2.6:3 «Чеклисты
-как способ удержания внимания» (docs-courses, `professional/modeling-1/06-...`);
+Sources: R2.6:2 "Checklists and changes of object states", R2.6:3 "Checklists
+as a way to hold attention" (docs-courses, `professional/modeling-1/06-...`);
 FPF Library `A.15.PROD` (https://fpf.tools/A.15.PROD), `E.24.PUB`
-(https://fpf.tools/E.24.PUB:4), снапшот 20261015T182921Z-219aa77d287d7d2d;
-`journey-catalogued-dataset.md` v0.3. Создан: 2026-10-18.
+(https://fpf.tools/E.24.PUB:4), snapshot 20261015T182921Z-219aa77d287d7d2d;
+`journey-catalogued-dataset.md` v0.3. Created: 2026-10-18. Translated to English: 2026-11-05 (content unchanged).
