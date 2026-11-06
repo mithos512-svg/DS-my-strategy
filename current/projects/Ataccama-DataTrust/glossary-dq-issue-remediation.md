@@ -3,8 +3,11 @@ type: glossary
 date: 2026-11-05
 course: R3.4:Tasks2
 object: DQ Issue Remediation / Контроль устранения проблем с качеством данных
-status: draft v0.2 (checked against FPF Library, snapshot 20261105T075950Z)
+time_scope: design time (pre-operation readiness)
+status: draft v0.3 (checked against FPF Library, snapshots 20261105T075950Z, 20261106T052652Z)
 ---
+
+> **Time scope: design time.** The glossary serves a readiness checklist for the system before launch. Terms such as DQ Check, Remediation, Verification and Closure name what will happen in operation; at design time the checklist checks that they are defined and set up, not how they perform.
 
 # Glossary: DQ Issue Remediation
 
