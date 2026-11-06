@@ -3,7 +3,8 @@ type: model
 date: 2026-11-05
 course: R3.4:7, R3.4:Mod3
 object: DQ Issue Remediation Control System
-status: v0.2 (checked against FPF Library, snapshot 20261105T084056Z)
+time_scope: design time (pre-operation readiness)
+status: v0.3 (checked against FPF Library, snapshot 20261106T052652Z)
 ---
 
 # Levels of detail: DQ Issue Remediation Control System
@@ -11,7 +12,9 @@ status: v0.2 (checked against FPF Library, snapshot 20261105T084056Z)
 > Assignment source: MimEcoSys/docs, `professional/modeling-2/04-practice-of-creating-models/12-levels-of-detail-in-descriptions.md` and `13-defining-description-levels-of-detail.md` (commit faed795, 2026-11-04).
 > Description: checklist template "How good looks like for DQ Issue Remediation" (a description of classes, typical representative). Customer: product manager; recipient: implementation project team.
 
-Types (R3.2): CFO - class of functional objects; CMO - class of material (constructive) objects; TP - temporal part; D - description.
+**Time scope: design time (pre-operation readiness).** The breakdowns describe the system as it is being set up before launch. Before launch there is no performed handling work yet - only the handling method (block C).
+
+Types (R3.2): CFO - class of functional objects; CMO - class of material (constructive) objects; D - description.
 
 ## A. Functional breakdown
 
@@ -30,18 +33,21 @@ Types (R3.2): CFO - class of functional objects; CMO - class of material (constr
 | | | DQ team :: CMO | Team member :: CMO :: CFO (role: data steward) |
 | | | | Team member :: CMO :: CFO (role: issue owner) |
 
-## C. Work breakdown (what the system does over time)
+## C. Issue handling method (steps of the method, not performed work)
 
-| Level 1 | Level 2 |
+| Method | Steps |
 |---|---|
-| Handling cycle of one issue :: TP (work of the system) | Detection (check run) :: TP |
-| | Assignment :: TP |
-| | Remediation :: TP |
-| | Verification :: TP |
+| Issue handling method (lifecycle model) :: D | Detection (check run on schedule) |
+| | Assignment (by the owner assignment rule) |
+| | Remediation (in the source system) |
+| | Verification (re-check against the threshold) |
+| | Closure (remediated / rejected / risk accepted) |
+
+In operation each issue will be handled by performed work that enacts this method; its parts will be temporal parts of that work (FPF A.3.1: method ≠ work; A.15.1). At design time the checklist checks the method and its set-up, plus one trial run on pilot data.
 
 ## D. Descriptions used (not parts of the system)
 
-DQ rule :: D (the threshold is part of it), issue record :: D, issue lifecycle model :: D, remediation SLA agreement :: D.
+DQ rule :: D (the threshold is part of it), issue record template :: D, issue lifecycle model :: D, remediation SLA agreement :: D.
 
 ## Rationale for the chosen levels
 
@@ -52,14 +58,15 @@ DQ rule :: D (the threshold is part of it), issue record :: D, issue lifecycle m
 - **Not going lower**: the internals of the check engine and fixing individual records in source systems are a black box for the recipient. "Speaking" test: "we checked that every issue has an assigned owner" makes sense; "we checked the execution plan of the rule's SQL query" no longer does.
 - **Not parts, but context**: source systems, datasets and data elements are what the system works on. They go to R3.4:Mod5 as relations.
 
-## FPF check (v0.1 → v0.2)
+## FPF check (v0.1 → v0.3)
 
 1. Descriptions (rule, threshold, record, lifecycle model, SLA) are not components of the system - moved to block D (A.6.H:4.4).
 2. Roles are not parts of the team: the parts are people, the role is given as a type (A.2).
-3. Work (cycle, check run, remediation) is not a phase of the system but a separate work breakdown (A.6.H:4.4, A.15.1).
-4. "Closure" is a state, not a temporal part; removed from the breakdown, goes to attributes (R3.4:Mod5).
+3. Work (cycle, check run, remediation) is not a phase of the system but a separate structure (A.6.H:4.4, A.15.1).
+4. "Closure" is a state, not a temporal part; it goes to attributes (R3.4:Mod5).
 5. Functional and constructive structures are kept separate (C.30.ASV:4.5a).
 6. Level 0: "organisation" / "data management function" instead of "Data Governance" as a practice (A.1).
+7. v0.3: design time - block C changed from "work breakdown" (temporal parts of performed work, which does not exist before launch) to "issue handling method" with its steps (A.3.1, B.3.3:4 CC-B3.3.5).
 
 ## For the LK form (R3.4:Mod3)
 
