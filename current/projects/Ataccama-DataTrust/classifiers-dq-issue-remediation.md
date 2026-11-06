@@ -3,8 +3,11 @@ type: model
 date: 2026-11-05
 course: R3.4:8, R3.4:Mod4
 object: DQ Issue Remediation Control System
-status: v0.1 (checked against FPF Library C.16.P:5)
+time_scope: design time (pre-operation readiness)
+status: v0.2 (checked against FPF Library C.16.P:5; setup statuses added 2026-11-06)
 ---
+
+> **Time scope: design time.** Classifiers are part of the meta-model and are set up before launch. The checklist checks that each classifier exists with its classes (and, for severity, a membership criterion), not how often each class occurs in operation.
 
 # Classifiers: DQ Issue Remediation Control System
 
