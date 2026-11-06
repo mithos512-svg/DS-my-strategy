@@ -3,7 +3,7 @@ type: model
 date: 2026-11-06
 course: R3.4:9, R3.4:Mod5
 object: DQ Issue Remediation Control System
-status: v0.2 (checked against FPF Library, snapshot 20261106T052652Z)
+status: v0.3 (checked against FPF Library, snapshot 20261106T052652Z)
 ---
 
 # Attributes and relations: DQ Issue Remediation Control System
@@ -40,7 +40,6 @@ status: v0.2 (checked against FPF Library, snapshot 20261106T052652Z)
 | | Detection date and time | date-time | — | — |
 | | Number of affected records | count | at detection | — |
 | | Closure outcome | — | at closure | Closure outcomes |
-| | Recurred within 30 days after closure | yes / no | 30 days after closure | — |
 | DQ Rule | Identifier: rule code | — | — | — |
 | | Rule type | — | — | DQ rule types |
 | | Threshold: comparison operator + cut value (for a class of rules - **interval**, e.g. 95–99 %) | % of passed records | — | — |
@@ -48,6 +47,7 @@ status: v0.2 (checked against FPF Library, snapshot 20261106T052652Z)
 | Check run | Identifier: rule code + run date-time | — | — | — |
 | | Pass rate | % of passed records | at run time | — |
 | | Number of checked records | count | at run time | — |
+| | Number of failed records | count | at run time | — |
 | Issue handling cycle | Wait time per stage | working hours | per one handling cycle | Issue lifecycle states (stage) |
 | | Touch time | working hours | per one handling cycle | — |
 | | Cycle time Open → Closed | working days | per one handling cycle | — |
@@ -85,19 +85,27 @@ status: v0.2 (checked against FPF Library, snapshot 20261106T052652Z)
 | Checklist "How good looks like" | sets the criteria for | Readiness judgement |
 | Readiness judgement | assesses | DQ Issue Remediation Control System |
 
-## FPF check (v0.1 → v0.2)
+## Was the root cause removed? - the rule trend is the evidence
+
+On the day of closure only the records are known to be fixed. Whether the root cause is removed is seen later, from the trend of the same rule's runs:
+- the rule stays in monitoring after closure with its usual run frequency;
+- the trend is read on the **number of failed records** (count), not on the pass rate: 300 new failures in 100,000 records move the pass rate from 100 % to 99.7 % and look like noise, while the count goes 0 → 300;
+- this works when the rule is narrow enough - one data element in one source system. For a rule spanning several systems the trend shows recurrence but not where.
+
+No separate recurrence attribute or matching procedure is needed (decision of 2026-11-06).
+
+## FPF check (v0.1 → v0.2 → v0.3)
 
 1. Time stance added to every numeric attribute (C.16:5.2, M-CSLC-4).
 2. Working calendar declared for "working hours/days" (M-CSLC-2).
 3. Severity: ordinal, no averaging (M-CSLC-2).
 4. Issue identifier = issue record number (A.7, glossary v0.2).
 5. "relates to" replaced with the direct relation "manifests in the values of" (A.6.H:4.4).
-6. Causal relations kept within support (CAUSAL-USE): root cause is a claim that "explains" and "is supported by evidence"; remediation "is aimed at" it; success is seen only through the new attribute "recurred within 30 days".
+6. Causal relations kept within support (CAUSAL-USE): root cause is a claim that "explains" and "is supported by evidence"; remediation "is aimed at" it. v0.3: the evidence of success is the trend of the rule's number of failed records after closure (replaces the v0.2 attribute "recurred within 30 days").
 7. Verification "checks the threshold after" remediation, instead of "confirms" it.
 8. SLA is a commitment that "applies to" an issue (A.2.8).
 
 ## Open points
 
 - Team working calendar - to be fixed.
-- Recurrence window (30 days) - placeholder, to agree with the team.
 - New classifier "Setup statuses" added to `classifiers-dq-issue-remediation.md` (v0.2).
