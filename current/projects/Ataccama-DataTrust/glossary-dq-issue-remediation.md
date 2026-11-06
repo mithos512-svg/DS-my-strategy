@@ -104,7 +104,8 @@ status: draft v0.2 (checked against FPF Library, snapshot 20261105T075950Z)
 - **Related:** [Issue Lifecycle](#issue-lifecycle), [Issue Owner](#issue-owner).
 
 ### Readiness (project domain)
-- **Definition:** a judgement that the new DQ Issue Remediation system meets the checklist criteria and can play its role in the supersystem: rules, owners, lifecycle and SLA are agreed, and the loop has been run end to end at least once.
+- **Definition:** a design-time judgement, made before launch, that the new DQ Issue Remediation system meets the checklist criteria and can play its role in the supersystem: rules, owners, lifecycle and SLA are agreed and set up, and a trial end-to-end run on pilot data has been passed from detection to closure.
+- **Time scope:** design time. The trial run shows that the configured loop can be passed, not that the system will perform in operation (FPF B.3.3:4, CC-B3.3.5).
 - **Type:** judgement about the state of the system being introduced, against declared criteria; the checklist "How good looks like" states the criteria.
 - **Related:** all of the above.
 - **Not to be confused with:** the state of the system itself, or a score.
