@@ -19,6 +19,7 @@ Types (R3.2): CFO - class of functional objects; CMO - class of material objects
 |---|---|---|
 | DQ Issue Remediation Control System :: CFO | DQ control operating models | centralised; federated (by domain); hybrid |
 | Subsystem (detection / registration / coordination) :: CFO | Functional subsystems of DQ control | issue detection; registration and routing; remediation coordination; reporting |
+| | Setup statuses (added 2026-11-06, from R3.4:Mod5) | not started; in setup; set up |
 | DG/DQ platform module :: CMO | DG/DQ platform modules | data catalog; DQ module; issue register and workflow; lineage |
 | Team member :: CMO (in a role) | Data management roles | data steward; data owner; issue owner; data engineer |
 | Data Quality Issue | Issues by quality dimension | completeness issue; validity issue; uniqueness issue; timeliness issue |
