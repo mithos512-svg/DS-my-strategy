@@ -48,7 +48,7 @@ builds_on: case-journey-flow-r4.md (R4.1:Tasks1)
 - The average age of WIP grows - a sign that the constraint has reached its utilisation limit and planning no longer works for it.
 
 **Inventory and resources**
-- Resources: people (stewards, analysts, engineer), their productive time, platform and environment access, vendor support hours.
+- Resources: people (product manager for triage; 2 engineers on DQ, 2 on Data Catalog and Data Lineage; no analysts - clarified 2026-11-15), their productive time, platform and environment access, vendor support hours.
 - Negative inventory: the queue of not-accepted cases; its value decays (requests become outdated, requesters work around the team).
 - Missing positive inventory: a knowledge base of answers to typical questions that could turn part of consultations into self-service.
 
