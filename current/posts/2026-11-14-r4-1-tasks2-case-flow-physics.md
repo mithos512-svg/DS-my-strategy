@@ -1,11 +1,11 @@
 ---
 type: post
-published: false
+published: true
 platform: МИМ клуб (systemsworld.club)
-url:
+url: https://systemsworld.club/t/fizika-nashego-potoka-kejsov-zagruzka-za-100-i-voprosy-kotorye-ostanavlivayut-vsyo/41845
 created: 2026-11-14
-published_at:
-status: черновик
+published_at: 2026-11-15
+status: опубликован
 source: R4.1:Tasks2, R4.1:7-R4.1:9 (MimEcoSys/docs, commit faed795, 04.11.2026); current/projects/Ataccama-DataTrust/case-flow-physics-r4.md (v1.0)
 ---
 
