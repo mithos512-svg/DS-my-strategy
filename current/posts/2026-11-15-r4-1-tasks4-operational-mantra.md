@@ -1,11 +1,11 @@
 ---
 type: post
-published: false
+published: true
 platform: МИМ клуб (systemsworld.club)
-url:
+url: https://systemsworld.club/t/operaczionnaya-mantra-dlya-potoka-kejsov-devyat-shagov-iz-kotoryh-projdeny-poka-tolko-myslenno/41846
 created: 2026-11-15
-published_at:
-status: черновик
+published_at: 2026-11-15
+status: опубликован
 source: R4.1:12, R4.1:Tasks4 (MimEcoSys/docs, commit faed795, 04.11.2026); current/projects/Ataccama-DataTrust/case-flow-mantra-r4.md (v1.0); FPF Library снапшот 20261114T101245Z
 ---
 
