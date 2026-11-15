@@ -59,7 +59,7 @@ builds_on: case-journey-flow-r4.md (R4.1:Tasks1)
 
 **Constraint**
 - The most loaded "station" is not one person but **the team time allocated to cases** - it is not allocated at all; cases get what is left after projects.
-- Inside the flow: probably the engineer on new functions (longest touch time).
+- Inside the flow: probably the engineer on new functions (longest touch time). **Superseded by Tasks3 (2026-11-15):** with 4 engineers (2 per domain, 50/50 split) neither pair stands out (~115 % each); the current constraint is triage by the product manager (~40-case queue, ~270 %). See `case-flow-constraint-r4.md`.
 - Missing regular triage: no prioritisation across the whole queue; urgent management questions pass as queue-jumpers and stop everything else.
 
 ## Implications (inputs for next R4 tasks)
