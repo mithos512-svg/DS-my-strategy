@@ -25,6 +25,17 @@ Case classes (different routes and touch times):
 | New function | configuration, new rule, new report |
 | System development | larger changes, integrations - **counted as a separate class** (decision 2026-11-13) |
 
+**Policies per class** (proposed 2026-11-17; different classes need different policies - #workitems post 237):
+
+| Class | Allowed size | Service order | Completion |
+|---|---|---|---|
+| User consultation | ≤ 2 h | duty engineer of the pair, in order of arrival | answer given, requester has no follow-up |
+| Management question | variable ("assignment" - from a day to a project, post 224) - size it at triage; if > 1 day, split | expedite class, served from the duty engineer's reserved time, does not interrupt the engineer on new functions | answer delivered, no edits expected |
+| New function | 1-3 working days | pulled by the pair from its buffer of clarified functions; projects A and B first | work product handed over, no further edits expected, short review done (post 231) |
+| System development | not a case: a larger unit | split into work items of 1-3 days before entering the flow (post 224) | per item as for new function; the larger unit closes when all items are done |
+
+**Result-centred units for projects A and B** (post 244): the result a project needs from us is a parent unit; the cases of the DQ pair and the Catalog/Lineage pair are child work items under it.
+
 ## 2. Segment and workstations
 
 | Workstation | Who works | Classes |
