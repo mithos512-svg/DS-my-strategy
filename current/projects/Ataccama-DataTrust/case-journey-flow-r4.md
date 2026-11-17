@@ -102,6 +102,16 @@ Further hypotheses (to check by reading case histories, since the tracker has no
 | Many cases per person, switching | open cases per assignee |
 | Closure lag (result delivered, not confirmed) | time from hand-over to closure |
 
+## Work item measures to add (2026-11-17, #workitems series)
+
+| Measure | What it shows | Source |
+|---|---|---|
+| Work episodes per case (interval from start or resume to finish or interruption) | losses from interruptions: urgent management questions create several episodes per case | post 249 |
+| Expected user outcome vs observed effect - who checks the effect and when, for new functions and for results for projects A and B | whether delivered functions bring value; closes the feedback loop | posts 244, 249 |
+| SLE per class (flow time with a stated probability, e.g. 85 % of consultations within N days) | forecast per class instead of one mixed Little's-law average | post 248 |
+
+Of the three reasons to agree on work items (post 244) - agreed customer value, feasible commitments with available capacity, closed feedback loop - the team today covers only the first, partly (intake template planned). Feasibility (no "not now") and feedback (no effect check) are not covered - consistent with the findings of Tasks1-4.
+
 ## Data limitations
 
 - No split by case class - the average mixes one-hour consultations and multi-month development.
