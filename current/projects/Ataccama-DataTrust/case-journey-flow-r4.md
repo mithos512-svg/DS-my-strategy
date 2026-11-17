@@ -14,7 +14,7 @@ status: v1.0 (checked against FPF Library, snapshot 20261112T230943Z)
 
 ## 1. The journeying object
 
-A **case** in the team's case management: a request to the DG/DQ team that goes from acceptance to a result confirmed by the case requester. The request (work to be done) and the case card in the tracker (its description) are kept apart; we measure by the card and talk about the movement of the request (FPF A.7).
+A **case** is a **work item** of the DG/DQ team: a unit of accounting and coordination of work - an agreement on what the team accounts for and coordinates, from acceptance to a result handed over to the requester. A case is **not** the work itself, the card, the work product, the plan, a work episode, the expected user outcome or the observed effect. The actual work is attributed to a case by the team's rules; the card in the tracker is the record of the case (FPF A.7; #workitems series, posts 213, 215, 248-249 - refined 2026-11-17).
 
 Case classes (different routes and touch times):
 
