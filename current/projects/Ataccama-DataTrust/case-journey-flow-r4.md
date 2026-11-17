@@ -46,8 +46,11 @@ Case classes (different routes and touch times):
 | Implementation (configuration, development) | engineer of the domain; sometimes IT or vendor | new function, development |
 | Review | second engineer of the pair | new function, development |
 
-Team (clarified 2026-11-15): product manager (triage); 2 engineers on DQ, 2 on Data Catalog and Data Lineage; no analysts; cases split ~50/50 between the domains. See `case-flow-constraint-r4.md`.
 | Hand-over and confirmation | assignee → requester | all |
+
+Team (clarified 2026-11-15): product manager (triage); 2 engineers on DQ, 2 on Data Catalog and Data Lineage; no analysts; cases split ~50/50 between the domains. See `case-flow-constraint-r4.md`.
+
+Triage and clarification are the **discovery** side (is the request worth solving, what exactly is needed); analysis, implementation and review are the **delivery** side (#workitems posts 237-238). The constraint found in Tasks3 - triage - is on the discovery side.
 
 The queue before triage (created, not yet accepted) is outside the segment - but the tracker does not separate it today (see §8).
 
