@@ -61,7 +61,7 @@ The queue before triage (created, not yet accepted) is outside the segment - but
 
 ## 4. End event and state
 
-**Event:** the requester received the result and confirmed it; the case is closed as resolved.
+**Event:** the requester received the result and confirmed it; no further edits are expected; the case is closed as resolved. For new functions - plus a short review of what to improve (#workitems post 231). The card status alone is not proof of completion: card status may not reflect reality (post 248).
 **State:** result delivered and accepted. Cases closed without resolution (duplicate, rejected, "not ours") are not throughput; counted separately.
 
 ## 5-7. Observed figures and flow time
