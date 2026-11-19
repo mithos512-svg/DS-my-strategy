@@ -16,7 +16,7 @@ status: v1.0 (checked against FPF Library, snapshot 20261112T230943Z)
 
 A **case** is a **work item** of the DG/DQ team: a unit of accounting and coordination of work - an agreement on what the team accounts for and coordinates, from acceptance to a result handed over to the requester. A case is **not** the work itself, the card, the work product, the plan, a work episode, the expected user outcome or the observed effect. The actual work is attributed to a case by the team's rules; the card in the tracker is the record of the case (FPF A.7; #workitems series, posts 213, 215, 248-249 - refined 2026-11-17).
 
-Case classes (different routes and touch times):
+**Demand type - a composite classification for capacity allocation** (renamed 2026-11-19). These four classes mix several bases (result, source, size); per #workitems post 257 a composite classification is acceptable when it serves one task - allocating capacity shares to demand types in advance and comparing plan with fact. For other questions use the single-basis classifiers in "Work item classification" below.
 
 | Class | Example |
 |---|---|
