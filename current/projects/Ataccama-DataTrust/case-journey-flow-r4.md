@@ -36,6 +36,35 @@ A **case** is a **work item** of the DG/DQ team: a unit of accounting and coordi
 
 **Result-centred units for projects A and B** (post 244): the result a project needs from us is a parent unit; the cases of the DQ pair and the Catalog/Lineage pair are child work items under it.
 
+## 1a. Work item classification (2026-11-19)
+
+> Source: #workitems series, posts 252-253 (15 classification bases) and 255-257 (bases in practice), t.me/product_operations; course R3.4:8 (one classifier - one basis). **One work item can be classified by several bases at once - each answers its own question** (post 252).
+
+| Basis (author's #) | Classes for the DG/DQ team | Question it answers |
+|---|---|---|
+| Reason for singling out work (13) | data user request; management assignment; project requirement (A, B); event (DQ rule failure, platform update); internal team question | where demand comes from - traceability from request to result (post 255) |
+| Subject of work (3) | DQ; Data Catalog; Data Lineage; platform and infrastructure | which engineering pair; several initiatives touching one component |
+| Position in the structure (11) | initiative → epic → story / function → task (1-3 days) | how to split large items; forecasting by tasks (posts 224, 256) |
+| Priority category (6) | urgent; fixed date (projects A and B, budget cycle); standard; deferred | order of start, buffers, right to interrupt (R4.1:10) |
+| Contribution type (8) | work producing the result; enabling work (preparation, approvals, access requests) | are missing start conditions visible in advance; enabling work can exceed result work (post 256) |
+| Kind of activity (4) | investigate and clarify (discovery: triage, problem card); implement (delivery) | who performs (product manager or engineers); where the constraint is (Tasks3: discovery side) |
+| Organisational coordination boundary (12) | within a pair; between DQ and Catalog pairs; with projects A and B; with IT or vendor | where work items get lost in "grey zones" between teams (post 257) |
+| Severity for the recipient (7) | blocks a process or a regulatory submission; hinders, workaround exists; inconvenience | what to do first among DQ problems; linked to the issue severity classifier |
+| Type of expected effect (2) | risk reduction (quality, compliance); cost reduction (manual reconciliations); support of revenue processes (data for sales and retailers) | how to justify initiatives, incl. the **2027 funding request** (problem card B-1, rival formulation "value not shown") |
+| Use of work products (10) | for one result; shared component for several (e.g. a source connection needed by both A and B) | do not count a shared component twice |
+| Composite: demand type (post 257) | consultations; management assignments; new functions; development | **capacity share per demand type in advance**, then plan vs fact |
+
+**Example:** connecting the ERP source to the catalog for project A - reason: project requirement; subject: Data Catalog; position: epic, split into tasks; priority: fixed date; contribution: producing the result; boundary: with project A and IT; effect: support of revenue processes; use: shared component if project B also needs it; demand type: new functions.
+
+**Not classes of work items** (posts 248-249): card status (state of the record), card type in the tracker (property of the description), work episode, work product, observed effect - other objects, accounted separately.
+
+**Minimum to start** (pay only for current complexity):
+1. **Reason** - all demand in the tracker; assignments from chats moved to the tracker, nothing done that is not recorded (post 255).
+2. **Subject** - routing to the engineering pair.
+3. **Priority category** - urgent via the duty engineer, projects A and B to their dates.
+4. **Composite demand type with capacity shares** - placeholder: consultations and management assignments 30 %, new functions 60 %, development 10 % of case time; compare with fact monthly.
+5. **Type of effect** - for initiatives only; needed for the 2027 budget justification.
+
 ## 2. Segment and workstations
 
 | Workstation | Who works | Classes |
