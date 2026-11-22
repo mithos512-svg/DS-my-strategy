@@ -3,7 +3,8 @@ type: templates
 date: 2026-11-22
 course: R4.2:6, R4.2:Tasks2
 problem_card: problem-cards-r4.md, B-2
-status: v1.1 (checked against FPF Library C.28, OPS.16, CONSEQUENCE-BEARERS; snapshot 20261122T121956Z)
+status: v1.2 (checked against FPF Library C.28, OPS.16, CONSEQUENCE-BEARERS, C.11.DUA, OPS.10; snapshot 20261122T121956Z)
+uncertainty: uncertainty-case-queue-r4.md (R4.2:Mod3)
 ---
 
 # Intervention template and interventions for the case queue
@@ -52,7 +53,7 @@ Negative explanation (from observations, R4.1, 13.11) - two hypotheses, not yet 
 
 0. **Relies on hypothesis (a).**
 1. **Direction:** remove the cause + restructure the process.
-2. **What we change:** weekly triage slot 1.5 h - **ourselves** (PM); intake template (class, subject, need, date, reason) - **ourselves**; each case gets "accept / not now / reject", "not now" with a review date - **ourselves**, needs **requesters' agreement** that "not now" is not a refusal; assignments from chats go to the tracker (#workitems post 255) - **ourselves**, needs **agreement with management**.
+2. **What we change:** weekly triage slot 1.5 h - **ourselves** (PM); intake template (class, subject, need, date, reason) - **ourselves**; each case gets "accept / not now / reject", "not now" with a review date - **ourselves**, needs **requesters' agreement** that "not now" is not a refusal; assignments from chats go to the tracker (#workitems post 255) - **ourselves**, needs **agreement with management**; **staged launch** - first 4 weeks "not now" only in one case class (e.g., new functions not related to A and B), then all classes if no workaround signs (launch condition from `uncertainty-case-queue-r4.md`, question 3).
 3. **Mechanism:** the queue before triage and the implicit "everything is accepted".
 4. **Positive explanation (prediction, not tested; based on R4.1 observations and estimates):** slot + template bring triage utilisation from ≈ 270 % to ≈ 73 % → the 40 untriaged cases get a decision within 4-6 weeks → only accepted cases reach engineers, in priority order → A and B go to their dates; "not now" stops hanging silently in the queue.
 5. **Reduces:** months of waiting without an answer; invisibility of demand for management.
@@ -68,8 +69,8 @@ Negative explanation (from observations, R4.1, 13.11) - two hypotheses, not yet 
 | Management | sees the "not now" list - may question priorities |
 
 9. **Compatibility:** reinforced by 2 ("not now" gets a date), but **2 changes arrivals** (long published dates discourage new requests) and would distort the check of 1 → start 2 two to three weeks after 1, and track arrivals separately. Not at the same time as 3.
-10. **Check:** observe - untriaged cases (weekly), cases closed per month, arrivals per month, queues at engineering pairs; compare with - baseline 13.11 (40 untriaged, 2-3 closed/month, 9-13 arrivals, 21 per pair); **threats** - December holidays and end of the budget cycle lower arrivals by themselves; intervention 2 lowers arrivals; **solved** - untriaged ≤ 10 after 6 weeks **and** closed ≥ 5/month after 2 months with arrivals not lower than baseline; **revise** - throughput flat while engineering queues grow → hypothesis (b), constraint at the engineers; **not enough data** - arrivals dropped strongly (season) → extend observation by 4 weeks.
-11. **Conditions, stop, fallback, decision:** conditions - PM slot protected in the calendar, requesters informed about "not now"; **early stop** - two or more escalations per week about "not now"; **fallback** - return "not now" cases to the queue in their original order; measures collected by the PM from the tracker (≈ 15 min/week); **decision** keep / change / cancel - PM, informing the DG lead.
+10. **Check:** observe - untriaged cases (weekly), cases closed per month - **"done" and "closed as not relevant" counted separately**, arrivals per month, queues at engineering pairs, **waiting measured from the original request date** (incl. time under "not now"), new unregistered extracts in the domains of "not now" cases; compare with - baseline 13.11 (40 untriaged, 2-3 closed/month, 9-13 arrivals, 21 per pair); **threats** - December holidays and end of the budget cycle lower arrivals by themselves; intervention 2 lowers arrivals; **solved** - untriaged ≤ 10 after 6 weeks **and** accepted arrivals ≤ "done" per month after 2 months **and** 85 % of accepted cases within the promised time counted from the request date (criterion to be agreed with the DG lead before start); **revise** - throughput flat while engineering queues grow → hypothesis (b), constraint at the engineers; **not enough data** - arrivals dropped strongly (season) → extend observation by 4 weeks.
+11. **Conditions, stop, fallback, decision:** conditions - PM slot protected in the calendar, requesters informed about "not now", DG lead's answer on routing urgent assignments through triage (until then the check covers only tracker arrivals), criterion of "solved" agreed; **gate after stage 1** - workaround signs in the pilot class → "not now" only with an alternative (self-service path, temporary dataset marked with its quality status) or intervention 2/3 moves earlier; **early stop** - two or more escalations per week about "not now", or a confirmed shadow extract/table created because of "not now"; **fallback** - return "not now" cases to the queue in their original order; measures collected by the PM from the tracker (≈ 15 min/week); **decision** keep / change / cancel - PM, informing the DG lead.
 
 ## Intervention 2. Realistic promises and protection of projects A and B
 
@@ -120,6 +121,14 @@ Negative explanation (from observations, R4.1, 13.11) - two hypotheses, not yet 
 ## Overall compatibility
 
 **Sequence: 1 → (2-3 weeks) → 2 → (4-6 weeks after 1) → 3.** Intervention 1 first: cheap, within team authority, and **distinguishes hypotheses (a) and (b)**. Intervention 2 changes arrivals, so it starts after 1 and arrivals are tracked separately in every check. Intervention 3 - once it is clear where the constraint is. If 1 ends in "revise", the next step is not 3 but a capacity conversation with the DG lead - an "involves others" option deliberately left out of the three (adding people is outside team authority).
+
+## Changes v1.1 → v1.2 (R4.2:Mod3, FPF C.11.DUA, OPS.10)
+
+- Staged launch of intervention 1: "not now" first in one case class; gate after 4 weeks on workaround signs (uncertainty question 3, the only one that can reverse the choice).
+- Waiting measured from the original request date, so that "not now" does not move waiting outside the measured boundary (OPS.10:4.4).
+- "Done" and "closed as not relevant" counted as separate populations (OPS.10:4.1).
+- Criterion "solved" changed from "closed ≥ 5/month" to stability (accepted arrivals ≤ done) plus a probabilistic time criterion; to be agreed with the DG lead.
+- Management agreement on urgent assignments is a launch condition, not assumed (CC-C11DUA.7).
 
 ## Changes v1.0 → v1.1 (FPF)
 
