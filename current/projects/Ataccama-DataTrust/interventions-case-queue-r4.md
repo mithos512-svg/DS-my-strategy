@@ -3,7 +3,8 @@ type: templates
 date: 2026-11-22
 course: R4.2:6, R4.2:Tasks2
 problem_card: problem-cards-r4.md, B-2
-status: v1.2 (checked against FPF Library C.28, OPS.16, CONSEQUENCE-BEARERS, C.11.DUA, OPS.10; snapshot 20261122T121956Z)
+status: v1.3 (checked against FPF Library C.28, OPS.16, CONSEQUENCE-BEARERS, C.11.DUA, OPS.10; snapshots 20261122T121956Z, 20261125T054841Z)
+hypotheses: hypotheses-case-queue-r4.md (R4.3:Tasks1)
 uncertainty: uncertainty-case-queue-r4.md (R4.2:Mod3)
 ---
 
@@ -14,7 +15,7 @@ uncertainty: uncertainty-case-queue-r4.md (R4.2:Mod3)
 **Principle (R4.2:6):** solving a problem needs two explanations - a **negative** one (why the current state is bad) and a **positive** one (why the intervention improves it, for whom, and **which side effects** it causes). Distinguish changes we make **ourselves**, changes that need **others**, and circumstances **outside our control**. Besides removing the cause, consider indirect directions: damage reduction, prevention of recurrence, adaptation, abandoning the activity - and always **"do nothing"**.
 
 **FPF guards (v1.1):**
-- Keep the causal rungs apart (C.28:2): data from R4.1 are **observations**; a positive explanation is an **intervention claim, not yet tested**; "do nothing" is a **counterfactual forecast** with stated assumptions.
+- Keep the causal rungs apart (C.28:2): data from R4.1 are **observations**; a positive explanation is an **intervention claim, not yet tested**; "do nothing" keeps the natural mechanism, so its forecast is a **trend extrapolation under unchanged conditions** (observational rung, C.28:4.1, 4.10), not a counterfactual.
 - A check result is evidence, not a decision: the decision stays with whoever has the authority (C.28:2, authority collapse).
 - A trial needs conditions, stop rules, fallback, observation burden and a decision maker (OPS.16:4.3-4.4).
 - Side effects are listed **by consequence-bearer** - who may be affected - to find omitted ones (CONSEQUENCE-BEARERS).
@@ -45,7 +46,7 @@ Negative explanation (from observations, R4.1, 13.11) - two hypotheses, not yet 
 ## Intervention 0. Do nothing
 
 - **Direction:** do nothing.
-- **Counterfactual forecast** (assumption: arrivals stay at 9-13/month, throughput at 2-3/month, no seasonal drop): WIP grows by 7-10 cases/month, ≈ 150 in six months; flow time for new cases keeps growing; projects A and B get results only when their cases break through as urgent.
+- **Trend extrapolation under unchanged conditions** (observational rung; assumption: arrivals stay at 9-13/month, throughput at 2-3/month, no seasonal drop): WIP grows by 7-10 cases/month, ≈ 150 in six months; flow time for new cases keeps growing; projects A and B get results only when their cases break through as urgent.
 - **Consequence-bearers:** requesters (longer waits, more workarounds); projects A and B (slips); engineers (permanent interruption mode).
 - **Why consider:** baseline for comparison and the cost of inaction - an argument for the DG lead.
 
@@ -69,8 +70,30 @@ Negative explanation (from observations, R4.1, 13.11) - two hypotheses, not yet 
 | Management | sees the "not now" list - may question priorities |
 
 9. **Compatibility:** reinforced by 2 ("not now" gets a date), but **2 changes arrivals** (long published dates discourage new requests) and would distort the check of 1 → start 2 two to three weeks after 1, and track arrivals separately. Not at the same time as 3.
-10. **Check:** observe - untriaged cases (weekly), cases closed per month - **"done" and "closed as not relevant" counted separately**, arrivals per month, queues at engineering pairs, **waiting measured from the original request date** (incl. time under "not now"), new unregistered extracts in the domains of "not now" cases; compare with - baseline 13.11 (40 untriaged, 2-3 closed/month, 9-13 arrivals, 21 per pair); **threats** - December holidays and end of the budget cycle lower arrivals by themselves; intervention 2 lowers arrivals; **solved** - untriaged ≤ 10 after 6 weeks **and** accepted arrivals ≤ "done" per month after 2 months **and** 85 % of accepted cases within the promised time counted from the request date (criterion to be agreed with the DG lead before start); **revise** - throughput flat while engineering queues grow → hypothesis (b), constraint at the engineers; **not enough data** - arrivals dropped strongly (season) → extend observation by 4 weeks.
+10. **Check:** observe - untriaged cases (weekly), cases closed per month - **"done" and "closed as not relevant" counted separately**, arrivals per month, queues at engineering pairs, **waiting measured from the original request date** (incl. time under "not now"), new unregistered extracts in the domains of "not now" cases; compare with - baseline 13.11 (40 untriaged, 2-3 closed/month, 9-13 arrivals, 21 per pair); **threats** - December holidays and end of the budget cycle lower arrivals by themselves; intervention 2 lowers arrivals; **solved** - untriaged ≤ 10 after 6 weeks **and** accepted arrivals ≤ "done" per month after 2 months **and** 85 % of accepted cases within the promised time counted from the request date (criterion to be agreed with the DG lead before start); **revise** - time to decision does not fall → triage is not the issue; (throughput is checked in intervention 1b, not here - triage alone speeds decisions, not output); **not enough data** - arrivals dropped strongly (season) → extend observation by 4 weeks.
 11. **Conditions, stop, fallback, decision:** conditions - PM slot protected in the calendar, requesters informed about "not now", DG lead's answer on routing urgent assignments through triage (until then the check covers only tracker arrivals), criterion of "solved" agreed; **gate after stage 1** - workaround signs in the pilot class → "not now" only with an alternative (self-service path, temporary dataset marked with its quality status) or intervention 2/3 moves earlier; **early stop** - two or more escalations per week about "not now", or a confirmed shadow extract/table created because of "not now"; **fallback** - return "not now" cases to the queue in their original order; measures collected by the PM from the tracker (≈ 15 min/week); **decision** keep / change / cancel - PM, informing the DG lead.
+
+## Intervention 1b. WIP limit per engineering pair
+
+0. **Relies on hypothesis H1b** (`hypotheses-case-queue-r4.md`): too many cases in progress at once (≈ 21 per pair) → switching and losses → few closures. Pre-experimental argument (R4.3:Tasks1): of the cheap measures only this one can raise output; triage alone shortens time to decision.
+1. **Direction:** remove the cause + restructure the process.
+2. **What we change:** each pair holds at most 3-4 cases in progress; a new case starts only when one is done or explicitly parked - **ourselves** (PM with the pairs); "in progress" date recorded in the tracker - **ourselves**; urgent assignments count against the limit - needs **agreement with management** (same conversation as intervention 1).
+3. **Mechanism:** parallel work at the pairs (switching, restarting after interruptions).
+4. **Positive explanation (prediction, not tested; no comparable period in history - the limit never existed):** fewer cases in progress → less switching and restarting → more cases finished per month → A and B reach their dates.
+5. **Reduces:** low output; cases that are "in progress" for months.
+6. **Adapts to:** headcount (4 engineers, 50/50).
+7. **Feasibility:** one meeting with the pairs to pick the 3-4 cases each; tracker field; effect in 4-8 weeks; within team authority.
+8. **Consequence-bearers:**
+
+| Who | What may happen |
+|---|---|
+| Requesters of parked cases | a case that was formally "in progress" is now openly waiting - may escalate |
+| Engineers | idle time while waiting for a requester answer on a blocked case - needs a rule for blocked cases |
+| Management | an urgent assignment now visibly displaces a named case |
+
+9. **Compatibility:** starts together with 1 - the outcomes differ (1: time to decision; 1b: output "done" per month), so the two effects can be told apart; 2 and 3 as before.
+10. **Check:** observe - cases in progress per pair (weekly), "done" per month, time in progress per case; compare with - baseline ≈ 21 per pair, 2-3 done/month; **threats** - closing obsolete cases during triage inflates "closed" (count "done" only); December holidays; **solved** - "done" ≥ 5/month after 2 months with ≤ 4 in progress per pair; **revise** - limit held but output flat → hypothesis H2 (capacity, hidden support work), next step is the capacity conversation with the DG lead; **not enough data** - limit not held for at least 4 weeks.
+11. **Conditions, stop, fallback, decision:** conditions - pairs agree to the limit, rule for blocked cases; **early stop** - a project A/B date at risk because of the limit; **fallback** - raise the limit to 6-8, not back to unlimited; measures - PM from the tracker (≈ 10 min/week); **decision** - PM with the pairs, informing the DG lead.
 
 ## Intervention 2. Realistic promises and protection of projects A and B
 
@@ -120,7 +143,14 @@ Negative explanation (from observations, R4.1, 13.11) - two hypotheses, not yet 
 
 ## Overall compatibility
 
-**Sequence: 1 → (2-3 weeks) → 2 → (4-6 weeks after 1) → 3.** Intervention 1 first: cheap, within team authority, and **distinguishes hypotheses (a) and (b)**. Intervention 2 changes arrivals, so it starts after 1 and arrivals are tracked separately in every check. Intervention 3 - once it is clear where the constraint is. If 1 ends in "revise", the next step is not 3 but a capacity conversation with the DG lead - an "involves others" option deliberately left out of the three (adding people is outside team authority).
+**Sequence: 1 + 1b → (2-3 weeks) → 2 → (4-6 weeks after 1) → 3.** Interventions 1 and 1b first: cheap, within team authority; 1 checks H1a by time to decision, 1b checks H1b against H2 by output. Intervention 2 changes arrivals, so it starts after 1 and arrivals are tracked separately in every check. Intervention 3 - once it is clear where the constraint is. If 1b ends in "revise", the next step is not 3 but a capacity conversation with the DG lead - an "involves others" option deliberately left out of the three (adding people is outside team authority).
+
+## Changes v1.2 → v1.3 (R4.3:Tasks1, FPF C.28)
+
+- New intervention 1b - WIP limit per pair (hypothesis H1b); started together with 1 because the outcomes differ.
+- Intervention 1 "revise" branch: judged by time to decision, not output; the output question moved to 1b.
+- "Do nothing" relabelled: trend extrapolation under unchanged conditions (observational rung), not a counterfactual forecast (C.28:4.1, 4.10).
+- For H1a, H1b, H2 history has no comparable periods (no triage, no limit, fixed team) - only the interventions themselves can give rung-2 evidence.
 
 ## Changes v1.1 → v1.2 (R4.2:Mod3, FPF C.11.DUA, OPS.10)
 
