@@ -175,7 +175,7 @@ Source of arrivals and urgents (added 26.11, R4.3:Tasks2): more and more functio
 
 ## Overall compatibility
 
-**Sequence: 1 + 1b → (2-3 weeks) → 2 → (4-6 weeks after 1) → 3.** Interventions 1 and 1b first: cheap, within team authority; 1 checks H1a by time to decision, 1b checks H1b against H2 by output. Intervention 2 changes arrivals, so it starts after 1 and arrivals are tracked separately in every check. Intervention 3 - once it is clear where the constraint is. If 1b ends in "revise", the next step is not 3 but a capacity conversation with the DG lead - an "involves others" option deliberately left out of the three (adding people is outside team authority).
+**Sequence: 1 + 1b → (2-3 weeks) → 2; in parallel from now - records for 4; 3 + 4 together after the first 4 weeks of 1b.** Interventions 1 and 1b first: cheap, within team authority; 1 checks H1a by time to decision, 1b checks H1b against H2 by output. Intervention 4 needs others and takes time, so its preparation (records of forwarded questions) starts immediately; the conversation and the kit (3) follow, and their effect most likely arrives after the 8-week window of 1b. Interventions 3 and 4 act on the same urgents - record urgents by subject so that each check can be read. Intervention 2 changes arrivals, so it starts after 1 and arrivals are tracked separately in every check. Intervention 3 - once it is clear where the constraint is. If 1b ends in "revise", the next step is not 3 but a capacity conversation with the DG lead - an "involves others" option deliberately left out of the three (adding people is outside team authority).
 
 ## Changes v1.2 → v1.3 (R4.3:Tasks1, FPF C.28)
 
