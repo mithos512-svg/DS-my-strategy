@@ -3,8 +3,9 @@ type: model
 date: 2026-11-25
 course: R4.3:1, R4.3:2, R4.3:Tasks1
 problem_card: problem-cards-r4.md, B-2
-interventions: interventions-case-queue-r4.md (v1.3)
-status: v1.0 (checked against FPF Library C.28:4.1, 4.3, 4.9, 4.10; snapshot 20261125T054841Z)
+interventions: interventions-case-queue-r4.md (v1.4)
+status: v1.1 (checked against FPF Library C.28:4.1, 4.3, 4.9, 4.10, A.2.8:4; snapshot 20261125T054841Z)
+cause_effect: cause-effect-pairs-case-queue-r4.md (v1.2)
 ---
 
 # Research question and hypotheses for the case queue
@@ -39,8 +40,11 @@ status: v1.0 (checked against FPF Library C.28:4.1, 4.3, 4.9, 4.10; snapshot 202
 
 - **H1a - triage.** There is no regular triage → requesters wait months for a decision. Outcome: time from request to decision.
 - **H1b - work in progress.** Pairs hold too many cases at once (≈ 21 per pair) → switching and restarts → few closures. Outcome: "done" per month.
-- **H2 - capacity.** Even with triage and a limit, four engineers are not enough (load ≈ 115 %); part of their time goes to platform support and consultations nobody counts. Outcome: "done" per month.
-- **H3 - urgent assignments.** Urgent management assignments displace all cases and cause the dips in output. Outcome: closures per week.
+- **H2 - capacity.** Even with triage and a limit, four engineers are not enough (load ≈ 115 %); part of their time goes to work nobody counts - **mainly explaining DG/DQ, its requirements and the platform functionality to new functions and onboarding their stewards** (refined 26.11), plus platform support. Outcome: "done" per month.
+- **H3 - urgent assignments.** Urgent management assignments - **mainly engaging and training stewards for new functions** (refined 26.11) - displace all cases and cause the dips in output. Outcome: closures per week.
+- **H4 - division of labour (added 26.11).** A separate department is responsible for engaging new functions, but does not go into technical details and forwards even basic questions, asking the team to talk to each function directly. With no agreed boundary of that department's duty, basic onboarding work lands on the DG/DQ team and is repeated function by function. Outcome: explanation hours per new function; share of basic questions among forwarded ones.
+
+**Common cause behind H2, H3, H4:** the rollout of DG/DQ to more and more functions - it raises arrivals, explanation load and urgent onboarding at the same time (`cause-effect-pairs-case-queue-r4.md`, pair 11).
 
 H1a was split from the earlier single "triage" hypothesis after the FPF check: "do(triage)" mixed two different interventions - deciding on cases and limiting work in progress - and only the second can raise output.
 
@@ -60,6 +64,8 @@ H1a was split from the earlier single "triage" hypothesis after the FPF check: "
 | B causes A (reverse) | long waits produce escalations, and escalations become urgent assignments |
 | C causes A and B (common cause) | budget cycle or quarter end produces urgent assignments and also distracts engineers |
 
+**H4.** Chain: new function interested → engagement department forwards its questions → the team explains individually → explanation time grows with every function → less time for cases. Assumption: a large share of forwarded questions is basic (answerable without technical depth) - based on the PM's observation, not recorded. The duty boundary of the engagement department is not written anywhere: that is a missing rule, not a proven refusal of a duty (A.2.8:4.2). The team's explanation work is performed by the team but counted as the engagement department's result ("function engaged") - duty bearer and performer differ (A.2.8:4.6).
+
 **What is missing even for rung 1:** today there are only aggregate numbers (100 open, 2-3 closures per month, 2-3 arrivals per week). Associations need the tracker export with created/closed (and, where available, started) dates and a retrospective list of urgent assignments.
 
 ## 4. Threat screen (C.28:4.3)
@@ -71,6 +77,7 @@ H1a was split from the earlier single "triage" hypothesis after the FPF check: "
 | Confounding | For H1a the association "untriaged cases wait longer" is nearly circular, and case importance / requester rank speeds both triage and closure. For H3: budget cycle, quarter end | Rung-1 evidence for H1a has low value; H3 needs the common cause separated |
 | Temporal order | H3: escalations after long waits could precede urgent assignments | Record dates of escalation and of assignment |
 | Interference | Cases compete for the same engineers | Unit of observation is the team-month, not the case |
+| Confounding (H4) | The pace of the rollout drives both forwarded questions and urgents | Normalise explanation hours and forwarded questions per new function |
 | Missing data / measurement | Urgent assignments not in the tracker (recall bias when reconstructed); closing obsolete cases during triage changes what "output" means | Start recording urgent assignments now; count "done" separately from "closed as not relevant" |
 
 ## 5. Rungs of causation
@@ -81,18 +88,21 @@ H1a was split from the earlier single "triage" hypothesis after the FPF check: "
 | **H1b** | "done" per month | **undecided**: switching losses not measured | P(more closures in a month \| fewer cases in progress at the pair) - if start dates exist | E[done \| do(≤ 3-4 cases per pair)] vs E[done \| do(as now)] | Would the DQ pair have closed the A and B cases in October holding 4 cases instead of ≈ 21? |
 | **H2** | "done" per month | **undecided**: 115 % is an estimate; history cannot answer (team unchanged) | P(low output \| month with much support work) - once support is recorded | E[done \| do(H1a + H1b)] ≈ E[done \| do(as now)], but E[done \| do(less consultation/support)] higher | Would the queue have grown all year if triage and the limit had been in place since spring? |
 | **H3** | closures per week | **observation without records**; direction and common cause not excluded | P(0 closures in a week \| urgent assignment that week) > P(0 closures \| none) - if such weeks exist | E[output \| do(urgent assignments only through triage)] vs E[output \| do(as now)] | Would the project A case have closed in October without the urgent assignment that week? |
+| **H4** | explanation hours per new function; share of basic questions among forwarded | **observation without records** (PM's experience) | P(question reaches the team \| basic question from a new function) - from a record of forwarded questions started now | E[explanation hours per function \| do(agreed boundary + kit)] vs E[… \| do(as now)] | Would the team have spent less time on the last onboarded function if the engagement department had answered its basic questions from a kit? |
 
 ## 6. Conclusions and next steps
 
-- All four hypotheses currently sit lower on the ladder than they sound: H1a, H1b and H2 are intervention claims without observed associations; H3 is an association "by feel".
+- All hypotheses currently sit lower on the ladder than they sound: H1a, H1b and H2 are intervention claims without observed associations; H3 and H4 are associations "by feel", not recorded.
 - The tracker history **will not answer the main question** - there are no comparable periods. Export it anyway as a baseline (created/closed dates).
 - History is worth mining only for H3 - first check whether weeks without urgent assignments exist; in parallel start recording urgent assignments.
+- H4 (added 26.11) points to the main source of arrivals and urgents; its rung-1 evidence is cheap - start recording forwarded questions (from whom, basic or technical) now. The intervention it suggests needs others (the engagement department, the DG lead).
 - The pre-experimental argument added a new intervention: **WIP limit per pair (H1b)** - the only cheap measure that can raise output. Added to `interventions-case-queue-r4.md` v1.3 as intervention 1b, started together with triage because the outcomes differ.
 
 ## Changes
 
+- v1.1 (2026-11-26): after R4.3:Tasks2 and the user's domain facts - H2 refined (invisible work = mainly explanation and steward onboarding), H3 refined (urgents = mainly steward onboarding), H4 added (undefined division of labour with the engagement department), common cause "rollout of DG/DQ" named; H4 rows in argumentation, threat screen and rung table (A.2.8:4).
 - v1.0 (2026-11-25): first version after the FPF check - H1 split into H1a/H1b; overlap finding (no comparable periods for H1a, H1b, H2); circular rung-1 formulation for H1a replaced and marked as confounded; unit of observation = team-month; rung-2 formulations compare with the current policy; "do nothing" moved to the observational rung.
 
 ---
 
-Sources: R4.3:1, R4.3:2, R4.3:Tasks1 (MimEcoSys/docs, commit faed795); FPF Library `C.28:4` (https://fpf.tools/C.28:4), snapshot 20261125T054841Z-7b084255babf17c2.
+Sources: R4.3:1, R4.3:2, R4.3:Tasks1 (MimEcoSys/docs, commit faed795); FPF Library `C.28:4` (https://fpf.tools/C.28:4), `A.2.8:4` (https://fpf.tools/A.2.8:4), snapshot 20261125T054841Z-7b084255babf17c2.
