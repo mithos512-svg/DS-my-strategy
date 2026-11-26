@@ -1,11 +1,11 @@
 ---
 type: post
-published: false
+published: true
 platform: МИМ клуб (systemsworld.club)
-url:
+url: https://systemsworld.club/t/tri-vmeshatelstva-i-nichego-ne-delat-kak-ya-planiroval-razgruzku-ocheredi-kejsov/41918
 created: 2026-11-22
-published_at:
-status: черновик
+published_at: 2026-11-26
+status: опубликован
 source: R4.2:6, R4.2:Tasks2 (MimEcoSys/docs, commit faed795, 04.11.2026); current/projects/Ataccama-DataTrust/interventions-case-queue-r4.md (v1.0)
 ---
 
