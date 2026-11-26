@@ -44,6 +44,8 @@ uncertainty: uncertainty-case-queue-r4.md (R4.2:Mod3)
 
 Negative explanation (from observations, R4.1, 13.11) - two hypotheses, not yet distinguished: (a) triage is done ad hoc and became the constraint (40 untriaged, triage ≈ 270 %); (b) engineering capacity is insufficient regardless of triage (≈ 115 %, 9-13 arrive per month, 2-3 closed). Amplifier: urgent management assignments interrupt other work.
 
+Source of arrivals and urgents (added 26.11, R4.3:Tasks2): more and more functions join DG/DQ; the engagement department forwards even basic questions and asks the team to talk to each function directly (H4); urgents are mainly steward onboarding. The team does not resolve DQ problems - stewards do.
+
 ## Intervention 0. Do nothing
 
 - **Direction:** do nothing.
