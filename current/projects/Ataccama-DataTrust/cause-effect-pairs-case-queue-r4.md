@@ -4,7 +4,7 @@ date: 2026-11-26
 course: R4.3:3, R4.3:Tasks2
 problem_card: problem-cards-r4.md, B-2
 hypotheses: hypotheses-case-queue-r4.md (v1.0)
-status: v1.1 (checked against FPF Library C.28.CM:4, C.28:4.1, Library.Reference:6.5.3.2, HCD.Reference:3; snapshot 20261125T054841Z)
+status: v1.2 (checked against FPF Library C.28.CM:4, C.28:4.1, Library.Reference:6.5.3.2, HCD.Reference:3, A.2.8:4; snapshot 20261125T054841Z)
 ---
 
 # Cause-effect pairs for the case queue
@@ -23,6 +23,7 @@ status: v1.1 (checked against FPF Library C.28.CM:4, C.28:4.1, Library.Reference
 - Feedback is unfolded in time (t → t+1), not erased to get an acyclic picture (C.28.CM:4.4).
 - Separate the subject event from its registration (C.28.CM:4.2) and watch selection of cases (C.28.CM:4.4).
 - A training session held, a capability of the trained person and a change in their work are different claims, each needing its own evidence (HCD.Reference:3).
+- The bearer of a duty and the actual performer of the work are different; work is attributed to whoever actually performs it, not inferred from the duty or the position. "Responsible" does not follow from a position or an "owner" label, and an undefined duty boundary is a missing rule, not a proven refusal of a duty (A.2.8:4.2, 4.6).
 
 ## 0. Domain facts (user, 26.11)
 
@@ -30,6 +31,7 @@ status: v1.1 (checked against FPF Library C.28.CM:4, C.28:4.1, Library.Reference
 - A large part of the team's time goes to explaining what Data Governance and Data Quality are, what is required from a function, and which functionality the platform offers.
 - The team does **not** resolve detected data quality problems - **data stewards** in the functions do.
 - Most urgent assignments are about **engaging and training data stewards** for functions.
+- A **separate department is responsible for engaging new functions** in DG/DQ. Its staff do not go into technical details and forward even simple questions to the DG/DQ team, asking it to communicate with each function directly.
 
 ## 1. Pairs from the hypotheses (Tasks1)
 
@@ -50,37 +52,43 @@ status: v1.1 (checked against FPF Library C.28.CM:4, C.28:4.1, Library.Reference
 |---|---|---|---|---|
 | 9 | Long waiting at time t | Escalation to management at t+1 | **Contributing** | Start of the feedback loop |
 | 10 | Escalation at t+1 | Urgent assignment at t+1 | **Contributing** | Escalations become urgent assignments - the reverse arrow of H3 |
-| 11 | A new function joining DG/DQ (company rollout); budget cycle / quarter end | Urgent assignments **and** more arrivals / distraction of engineers | **Contributing (common cause)** | Produces an association between urgents and low output without urgents causing it. The rollout of DG/DQ to new functions is the main common cause found |
+| 11 | Rollout of DG/DQ to new functions, driven by the engagement department; budget cycle / quarter end | Urgent assignments **and** more arrivals / distraction of engineers | **Contributing (common cause)** | Produces an association between urgents and low output without urgents causing it. The rollout is the main common cause found |
 | 12 | Requester answer / input data | Completion of the case | **Necessary** | Blocked cases: the pair cannot finish without the requester. Needed for the WIP-limit rule (intervention 1b) |
 | 13 | Case accepted at triage | Start of work | **Necessary - by the target rule** | Today it is not necessary (engineers start without triage); intervention 1 makes it necessary |
 | 14 | "Not now" or a long promised date | Requester works around the team (own extract, shadow table) | **Contributing (risk)** | The only uncertainty that can reverse the choice (`uncertainty-case-queue-r4.md`, question 3) |
 | 15 | Shadow extracts | Worse data quality downstream | **Contributing** | The DG/DQ goal is hurt even if the queue shrinks |
 | 16 | Closing obsolete cases at triage | "Closed" per month goes up | **Sufficient - for the measure "closed"** | Not a cause of more "done"; this is why "done" and "closed as not relevant" are counted separately |
 | 17 | Case classes in the tracker | Service level expectation (SLE) per class | **Necessary** | Without classes only one overall SLE is possible (intervention 2) |
-| 18 | A new function becomes interested in DG/DQ | Demand for explanation: what DG/DQ is, what is required, which functionality exists | **Sufficient - by the current arrangement** | Every function is onboarded by the team in person; there is no standard onboarding. A different arrangement (self-service materials, scheduled cohorts) makes it contributing |
+| 18 | A new function becomes interested in DG/DQ | Demand for explanation reaches the DG/DQ team | **Sufficient - by the current arrangement** | Works through pair 23: the engagement department forwards the questions. A different arrangement (first line at the engagement department, a standard kit, cohorts) makes it contributing |
 | 19 | An engaged, trained data steward in the function | Detected DQ problems in that function get resolved | **Necessary - by the role boundary** | The team does not resolve DQ problems; without a steward, detected problems stay open whatever the team does |
 | 20 | Explanation / training sessions by the team | The steward can resolve DQ problems on their own | **Contributing** | A session held ≠ capability (HCD.Reference:3). Evidence of effect is the steward resolving issues without team help, not attendance |
 | 21 | Trained stewards in a function (t) | Fewer repeated questions from that function (t+1) | **Contributing (conjecture)** | A balancing loop: onboarding now reduces demand later. Not observed yet |
 | 22 | No trained steward in a function | DQ problems are routed to the team as cases | **Contributing (conjecture)** | Misrouted demand adds arrivals the team cannot close by its role. To check in the tracker |
+| 23 | The engagement department does not go into technical details and forwards questions (current practice) | Every question of a new function, even a simple one, lands on the DG/DQ team | **Sufficient - by the current practice** | The duty to engage functions sits with the engagement department; the explanation work is actually performed by the DG/DQ team and is not counted as its work (A.2.8:4.6) |
+| 24 | Request "communicate with each function directly" | Individual onboarding per function, no reuse - explanation time grows with every new function | **Contributing** | Removes the economies of a cohort or a kit; the same explanation is repeated function by function |
+| 25 | No agreed rule on which questions the engagement department answers itself | Simple questions are forwarded too | **Contributing** | The boundary of the department's duty is undefined - a missing rule, not a proven refusal (A.2.8:4.2). Agreeing the boundary is a design move |
+| 26 | Engagement department's success (more functions engaged) | Higher load on the DG/DQ team | **Contributing** | Benefits and costs of the rollout fall on different departments; the team's capacity is not part of the rollout plan |
 
 **Loops (unfolded in time):**
 - *Reinforcing:* long waiting (t) → escalation (t+1) → urgent assignment (t+1) → pair stops (t+1) → lower output (t+1) → longer waiting (t+2). Pairs 9, 10, 7, 8.
 - *Balancing (conjecture):* steward onboarding (t) → trained stewards → fewer repeated questions and fewer misrouted DQ problems (t+1) → lower arrivals. Pairs 20, 21, 22.
-- Under the current rule the balancing loop is fed only through urgent assignments - so onboarding, which should reduce demand later, now stops case work and lengthens the queue. The two loops compete for the same engineering time.
+- *Rollout chain:* engagement department's success (26) → more functions (18) → forwarded questions and individual onboarding (23, 24) → urgent onboarding (7) → stopped case work. The faster the rollout, the more the team's case work stops.
+- Under the current arrangement the balancing loop is fed only through urgent assignments - so onboarding, which should reduce demand later, now stops case work and lengthens the queue. The loops compete for the same engineering time.
 
 ## 3. Three different questions (C.28.CM:4.1)
 
 | Question | Mechanism that answers it |
 |---|---|
-| Why did the queue start growing? | More and more functions joined DG/DQ (pair 18, common cause 11): each needs explanation of DG/DQ, its requirements and the functionality, and stewards must be engaged and trained (pairs 19, 20); the team stayed at four engineers (pair 5). Arrivals grew with the rollout, not with a single event |
-| Why does it persist? | The reinforcing loop 9 → 10 → 7 → 8, where urgent onboarding requests preempt cases, plus parallel work (pair 4) |
-| What shortens it now? | Planned, repeatable onboarding instead of urgent individual onboarding (removes pair 7's content, strengthens the balancing loop); urgents through triage; WIP limit (pair 4); routing DQ problems to stewards (pair 22) |
+| Why did the queue start growing? | More and more functions joined DG/DQ (pair 18, common cause 11). The engagement department forwards their questions and asks the team to talk to each function directly (pairs 23, 24); stewards must be engaged and trained (pairs 19, 20); the team stayed at four engineers (pair 5) |
+| Why does it persist? | The reinforcing loop 9 → 10 → 7 → 8, where urgent onboarding requests preempt cases; the rollout chain keeps feeding it (26 → 18 → 23 → 7); parallel work (pair 4) |
+| What shortens it now? | An agreed division of labour with the engagement department (first line there, technical questions to the team through triage - pairs 23, 25); a repeatable onboarding kit and cohorts instead of individual urgent onboarding (pairs 24, 7); urgents through triage; WIP limit (pair 4); routing DQ problems to stewards (pair 22) |
 
 ## 4. Registration and selection traps
 
-- **Subject vs registration (C.28.CM:4.2):** a "case" in the tracker is a record of a request. Urgent onboarding requests and chat questions are requests without records; analysing the tracker alone underestimates arrivals and hides H3 and the explanation load.
+- **Subject vs registration (C.28.CM:4.2):** a "case" in the tracker is a record of a request. Urgent onboarding requests, forwarded questions and chat questions are requests without records; analysing the tracker alone underestimates arrivals and hides H3 and the explanation load.
 - **Selection (C.28.CM:4.4):** computing flow time from **closed** cases only selects the short ones - long cases are still open. A service level expectation built this way will be too optimistic. Include open cases (their age so far) when estimating.
 - **Training vs capability (HCD.Reference:3):** counting sessions held or stewards "trained" does not show that stewards can resolve issues; observe DQ issues resolved by stewards without team help.
+- **Duty vs performer (A.2.8:4.6):** in the engagement department's reporting, a function counts as "engaged" by that department; the explanation work behind it was performed by the DG/DQ team. Without recording who actually performed it, the team's contribution is invisible in both departments' numbers.
 
 ## 5. Counterfactual reasoning
 
@@ -92,32 +100,33 @@ status: v1.1 (checked against FPF Library C.28.CM:4, C.28:4.1, Library.Reference
 
 *What it tells us:* if in this world the GTIN case still closes late because of urgents, then H1a and H1b do not explain its delay and H3 does; if it closes earlier, waiting for a decision and parallel work explain most of the delay. The rung-3 answer depends on unrecorded facts (when exactly the urgents happened) - another reason to start recording them.
 
-**CF-2. A world where joining functions go through a planned onboarding (a world arranged differently).**
+**CF-2. A world with an agreed first line at the engagement department and planned onboarding (a world arranged differently).**
 
-*Possible world:* the same number of functions join DG/DQ in 2026, with the same interest and the same need for stewards. But the company has a standard onboarding: a monthly cohort for new functions (what DG/DQ is, the steward role and what is required, the platform functionality), self-service materials, and a fixed reserve of engineering time for it. A function that wants to join waits for the next cohort instead of raising an urgent request.
+*Possible world:* the same number of functions join DG/DQ in 2026, with the same interest and the same need for stewards, and the engagement department is still responsible for engaging them. But two rules differ: (1) the engagement department answers basic questions itself, using a standard kit prepared once by the DG/DQ team (what DG/DQ is, the steward role and what is required, the main platform functionality); only technical questions go to the team, through triage; (2) new functions join through a monthly cohort with a fixed reserve of engineering time, not through individual urgent requests.
 
-*Reasoning:* the demand for explanation (pair 18) is the same, but it arrives on a schedule and is served once per cohort, not once per function. Urgent assignments lose their main content, so pair 7 rarely fires; the reinforcing loop loses its strongest link. The balancing loop (pairs 20-22) works without stopping case work.
+*Reasoning:* the demand for explanation (pair 18) is the same, but most of it no longer reaches the team (pair 23 becomes contributing), and the rest arrives on a schedule and is served once per cohort (pair 24 disappears). Urgent assignments lose their main content, so pair 7 rarely fires; the reinforcing loop loses its strongest link. The balancing loop (pairs 20-22) works without stopping case work.
 
-*What it tells us:* the cause of the dips is not the growth of interest in DG/DQ - that is a success - but the arrangement "each function is onboarded individually and urgently". Under this reasoning the strongest intervention is not triage but a repeatable onboarding product. It also sets the evidence needed: stewards resolving DQ issues without team help, not the number of sessions.
+*What it tells us:* the cause of the dips is not the growth of interest in DG/DQ - that is a success - but the arrangement "the engagement department forwards everything, and each function is onboarded individually and urgently by the DG/DQ team". The strongest intervention is then an agreement on the division of labour plus a repeatable onboarding product - an intervention that **needs others** (the engagement department and the managers who can set its duty boundary). Evidence of effect: share of forwarded questions that are technical; stewards resolving DQ issues without team help.
 
 ## 6. Conclusions
 
-- Of 22 pairs only one is sufficient regardless of rules - the accounting identity (pair 1). The other "sufficient" causes are conjunctions (pair 3), or are sufficient only under the current rule or arrangement (pairs 7, 18), or only for a measure (pair 16).
-- Many necessary causes are set by rules and role boundaries (pairs 13, 19) - they can be designed.
-- The queue started growing because more functions joined DG/DQ and each needs explanation and steward onboarding; it persists because urgent onboarding preempts case work in a reinforcing loop.
-- Two loops compete for engineering time: urgent onboarding (reinforcing the queue) and steward capability (reducing demand later). The arrangement of onboarding decides which one wins.
-- New measurement needs: record urgent assignments with their subject (onboarding / other) and dates; record explanation time; observe DQ issues resolved by stewards; estimate flow time including open cases.
+- Of 26 pairs only one is sufficient regardless of rules - the accounting identity (pair 1). The other "sufficient" causes are conjunctions (pair 3), or are sufficient only under the current rule, arrangement or practice (pairs 7, 18, 23), or only for a measure (pair 16).
+- Many necessary and sufficient causes are set by rules and role boundaries (pairs 13, 19, 23) - they can be designed, but some of them only together with another department.
+- The queue started growing because more functions joined DG/DQ; the engagement department forwards their questions and asks for direct, individual communication, so each new function adds explanation and onboarding work to the DG/DQ team. It persists because urgent onboarding preempts case work in a reinforcing loop fed by the rollout itself.
+- The boundary of the engagement department's duty is undefined - this is a missing rule to agree, not a fault to assign.
+- New measurement needs: record forwarded questions (from whom, technical or basic); record urgent assignments with subject and dates; record explanation time; observe DQ issues resolved by stewards; estimate flow time including open cases.
 
 ## 7. Proposed changes to other models (not applied yet)
 
-- `hypotheses-case-queue-r4.md`: refine H2 (invisible work = mainly explanation and steward onboarding) and H3 (urgents = mainly steward onboarding for new functions); add common cause "rollout of DG/DQ to new functions".
-- `interventions-case-queue-r4.md`: re-target intervention 3 from a generic knowledge base for consultations to a **repeatable onboarding product for functions and stewards** (cohorts + self-service materials; a learning product for a future audience) and consider moving it earlier - it acts on the main source of arrivals and urgents.
+- `hypotheses-case-queue-r4.md`: refine H2 (invisible work = mainly explanation and steward onboarding forwarded by the engagement department) and H3 (urgents = mainly steward onboarding for new functions); add common cause "rollout of DG/DQ to new functions" and a new hypothesis H4 "the undefined division of labour with the engagement department routes basic onboarding work to the DG/DQ team".
+- `interventions-case-queue-r4.md`: add an intervention that **needs others** - an agreed division of labour with the engagement department (first line there with a standard kit, technical questions to the team through triage), to be raised with the DG lead and, if needed, the D&A lead; re-target intervention 3 from a generic knowledge base to a **repeatable onboarding product** (kit + cohorts) and consider moving it earlier.
 
 ## Changes
 
-- v1.1 (2026-11-26): domain facts from the user - growth comes from more functions joining DG/DQ; explanation and steward onboarding take much time; the team does not resolve DQ problems (stewards do); urgents are mostly steward onboarding. Pairs 6, 7, 11 refined; pairs 18-22 added; balancing loop added; section 3 rewritten; CF-2 replaced by the planned-onboarding world; training vs capability guard (HCD.Reference:3).
-- v1.0 (2026-11-26): first version after the FPF check - sufficient causes written as conjunctions or rule-dependent; types marked as relative to rules; feedback loop unfolded in time; three questions separated; registration and selection traps added.
+- v1.2 (2026-11-26): new domain fact - a separate department is responsible for engaging functions, does not go into technical details and forwards even simple questions, asking the team to talk to each function directly. Pairs 23-26 added; pairs 11 and 18 refined; rollout chain added to loops; section 3 rewritten; CF-2 reworked (first line at the engagement department + planned onboarding); duty vs performer trap and A.2.8 guard added; proposals extended (H4, division-of-labour intervention).
+- v1.1 (2026-11-26): domain facts - growth from more functions joining DG/DQ; explanation and steward onboarding take much time; the team does not resolve DQ problems (stewards do); urgents are mostly steward onboarding. Pairs 18-22, balancing loop, CF-2 planned onboarding, training vs capability guard (HCD.Reference:3).
+- v1.0 (2026-11-26): first version after the FPF check - sufficient causes written as conjunctions or rule-dependent; types relative to rules; feedback loop unfolded in time; three questions separated; registration and selection traps.
 
 ---
 
-Sources: R4.3:3, R4.3:Tasks2 (MimEcoSys/docs, commit faed795); FPF Library `C.28.CM:4` (https://fpf.tools/C.28.CM:4), `C.28:4.1` (https://fpf.tools/C.28:4.1), `Library.Reference:6.5.3.2` (https://fpf.tools/Library.Reference:6.5.3.2), Human Capability Development DPF `HCD.Reference:3` (https://fpf.tools/HCD.Reference:3), snapshot 20261125T054841Z-7b084255babf17c2.
+Sources: R4.3:3, R4.3:Tasks2 (MimEcoSys/docs, commit faed795); FPF Library `C.28.CM:4` (https://fpf.tools/C.28.CM:4), `C.28:4.1` (https://fpf.tools/C.28:4.1), `Library.Reference:6.5.3.2` (https://fpf.tools/Library.Reference:6.5.3.2), `A.2.8:4` (https://fpf.tools/A.2.8:4), Human Capability Development DPF `HCD.Reference:3` (https://fpf.tools/HCD.Reference:3), snapshot 20261125T054841Z-7b084255babf17c2.
