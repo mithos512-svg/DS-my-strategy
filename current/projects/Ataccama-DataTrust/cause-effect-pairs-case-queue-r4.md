@@ -116,7 +116,7 @@ status: v1.2 (checked against FPF Library C.28.CM:4, C.28:4.1, Library.Reference
 - The boundary of the engagement department's duty is undefined - this is a missing rule to agree, not a fault to assign.
 - New measurement needs: record forwarded questions (from whom, technical or basic); record urgent assignments with subject and dates; record explanation time; observe DQ issues resolved by stewards; estimate flow time including open cases.
 
-## 7. Proposed changes to other models (not applied yet)
+## 7. Changes to other models (applied 26.11: hypotheses v1.1, interventions v1.4)
 
 - `hypotheses-case-queue-r4.md`: refine H2 (invisible work = mainly explanation and steward onboarding forwarded by the engagement department) and H3 (urgents = mainly steward onboarding for new functions); add common cause "rollout of DG/DQ to new functions" and a new hypothesis H4 "the undefined division of labour with the engagement department routes basic onboarding work to the DG/DQ team".
 - `interventions-case-queue-r4.md`: add an intervention that **needs others** - an agreed division of labour with the engagement department (first line there with a standard kit, technical questions to the team through triage), to be raised with the DG lead and, if needed, the D&A lead; re-target intervention 3 from a generic knowledge base to a **repeatable onboarding product** (kit + cohorts) and consider moving it earlier.
