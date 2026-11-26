@@ -1,11 +1,11 @@
 ---
 type: post
-published: false
+published: true
 platform: МИМ клуб (systemsworld.club)
-url:
+url: https://systemsworld.club/t/kartochka-problemy-kak-ya-zapisal-reshenie-vmesto-problemy-i-chto-s-etim-sdelal/41882
 created: 2026-11-18
-published_at:
-status: черновик
+published_at: 2026-11-26
+status: опубликован
 source: R4.2:4, R4.2:Tasks1 (MimEcoSys/docs, commit faed795, 04.11.2026); current/projects/Ataccama-DataTrust/problem-cards-r4.md (v1.0)
 ---
 
