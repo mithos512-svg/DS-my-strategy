@@ -1,11 +1,11 @@
 ---
 type: post
-published: false
+published: true
 platform: МИМ клуб (systemsworld.club)
-url:
+url: https://systemsworld.club/t/gipotezy-na-lestnicze-prichinnosti-pochemu-istoriya-trekera-ne-otvetit-na-glavnyj-vopros/41951
 created: 2026-11-25
-published_at:
-status: черновик
+published_at: 2026-11-26
+status: опубликован
 source: R4.3:1, R4.3:2, R4.3:Tasks1 (MimEcoSys/docs, commit faed795, 04.11.2026); current/projects/Ataccama-DataTrust/hypotheses-case-queue-r4.md (v1.0), interventions-case-queue-r4.md (v1.3)
 ---
 
