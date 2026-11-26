@@ -121,28 +121,57 @@ Source of arrivals and urgents (added 26.11, R4.3:Tasks2): more and more functio
 10. **Check:** observe - share of cases closed within the promised date, status follow-ups, A and B results by their dates, arrivals; compare with - no dates promised now; follow-up baseline from the last month (tracker or mail); **threats** - fewer follow-ups may come from fewer arrivals, not from better information; **solved** - ≥ 85 % within the promised date, follow-ups halved relative to arrivals, no A/B slips caused by the team; **revise** - promised dates keep growing → without changing capacity or entry (1 or 3) this only records deterioration; **not enough data** - fewer than ~20 closed cases in the window.
 11. **Conditions, stop, fallback, decision:** conditions - DG lead agrees to the A/B reserve; **early stop** - promised dates exceed what requesters can accept and arrivals fall sharply (sign of workarounds); **fallback** - stop publishing dates, keep only early notice; measures - PM from tracker and mail; **decision** - PM for dates, DG lead for the A/B reserve.
 
-## Intervention 3. Reduce consultation demand through self-service
+## Intervention 3. Repeatable onboarding product for functions and stewards
 
-0. **Relies on part of hypothesis (b):** capacity is eaten by repeated consultations (~45 % of arrivals, assumption from R4.1).
-1. **Direction:** prevent recurrence + change the method.
-2. **What we change:** knowledge base of answers to typical questions (finding a dataset, term meaning, technical vs business metadata) - **ourselves**; each consultation starts with checking the base, a new answer is added - **ourselves**; link to the base in the intake template and catalog UI - **ourselves**, possibly with **vendor or IT** for the UI.
-3. **Mechanism:** arrivals of consultation cases (incoming load).
-4. **Positive explanation (prediction, not tested):** users close part of the questions themselves → consultation arrivals drop → engineering time is freed for new functions → function throughput grows, incl. for A and B.
-5. **Reduces:** engineers' load with repeated questions.
-6. **Adapts to:** headcount (hiring an analyst is outside team authority).
-7. **Feasibility:** first 20-30 answers ≈ a week of work spread across engineers, **taken from cases** - throughput drops temporarily; effect in 2-3 months.
+*Re-targeted in v1.4 (was: knowledge base for consultations). Per the user (26.11) the repeated demand is mainly explaining DG/DQ, its requirements and the platform functionality to new functions and onboarding their stewards.*
+
+0. **Relies on refined H2 and on cause-effect pairs 18, 20-22, 24** (`cause-effect-pairs-case-queue-r4.md`): every new function is onboarded individually and urgently; trained stewards should reduce demand later.
+1. **Direction:** prevent recurrence + change the method (individual onboarding → repeatable product).
+2. **What we change:** a standard onboarding kit - what DG/DQ is, the steward role and what is required from a function, the main platform functionality, where and how to ask - **ourselves**; a monthly cohort for new functions with a fixed reserve of engineering time - format **ourselves**, the reserve needs the **DG lead**, routing functions into the cohort needs the **engagement department** (see intervention 4); self-service materials linked from the catalog - **ourselves**.
+3. **Mechanism:** arrivals of explanation and onboarding work and urgent onboarding requests (pairs 18, 24, 7).
+4. **Positive explanation (prediction, not tested):** one kit + monthly cohorts → explanation served once per cohort, not per function → fewer urgent onboarding requests → fewer stops of case work → more "done"; trained stewards resolve DQ problems themselves → fewer misrouted DQ cases.
+5. **Reduces:** urgent onboarding, repeated explanation, misrouted DQ problems.
+6. **Adapts to:** the growing number of functions (the rollout continues - that is a success).
+7. **Feasibility:** kit ≈ 1-2 weeks of one engineer + PM, **taken from cases** - output drops temporarily; a cohort ≈ 2-3 h per month; effect in 2-3 months.
 8. **Consequence-bearers:**
 
 | Who | What may happen |
 |---|---|
-| Data consumers downstream | an outdated answer leads to decisions on a wrong understanding of the data |
-| Users | do not find the answer and write anyway - double effort |
-| Engineers | maintenance of the base becomes a permanent extra duty |
-| Requesters of all classes | temporary throughput drop at start |
+| New functions | wait up to a month for a cohort instead of an immediate session - may escalate |
+| Engagement department | must route functions into cohorts; may see it as slowing the rollout |
+| Stewards | a standard programme may not fit a specific function |
+| Engineers | kit maintenance after platform changes becomes a permanent duty |
+| Data consumers downstream | an outdated kit teaches stewards a wrong practice |
 
-9. **Compatibility:** fits 1 and 2, but **not at the same time as 1**. Sequence: 1 → after 4-6 weeks 3.
-10. **Check:** observe - share of consultations in arrivals, base hits, new function throughput; compare with - baseline ≈ 45 % (refine by tracker after classes are introduced); **threats** - consultation share can drop seasonally or because intervention 2 discourages requests; **solved** - consultations ≤ 30 % after 3 months and function throughput up; **revise** - base hardly used or share unchanged → questions are not typical; **not enough data** - classes introduced less than 2 months ago.
-11. **Conditions, stop, fallback, decision:** conditions - an owner for each answer and a review date; **early stop** - more than one complaint about a wrong answer per month; **fallback** - remove or mark outdated answers, return to answering by case; measures - from base statistics and tracker; **decision** - PM with the engineers.
+9. **Compatibility:** the kit is the tool for the first line in intervention 4 - prepare together with 4. Kit preparation takes engineering time - not during the first 4 weeks of 1b.
+10. **Check:** observe - urgent onboarding requests per month (by subject), explanation hours, DQ issues resolved by stewards without team help (per onboarded function), misrouted DQ cases; compare with - baseline from recording urgents and forwarded questions started 26.11; **threats** - a slower rollout lowers urgents by itself (normalise per new function); intervention 4 acts on the same urgents; **solved** - urgent onboarding ≤ 1 per month and explanation time per new function halved after 3 months, and in each onboarded function at least one DQ issue resolved by stewards without team help; **revise** - functions bypass cohorts through urgents → the issue is the rule, not the material - go to intervention 4; **not enough data** - fewer than 3 new functions in the window.
+11. **Conditions, stop, fallback, decision:** conditions - DG lead agrees to the reserve; the engagement department routes functions into cohorts; **early stop** - a function important for projects A or B is blocked by waiting for a cohort → serve it individually as an exception; **fallback** - individual sessions, but with the kit (reuse remains); measures - PM records; **decision** - PM with the DG lead.
+
+## Intervention 4. Agreed division of labour with the engagement department
+
+*Added in v1.4. Relies on H4 (`hypotheses-case-queue-r4.md` v1.1). The only intervention that **needs others** for its core change.*
+
+0. **Relies on H4:** the engagement department forwards even basic questions and asks the team to talk to each function directly; the boundary of its duty is not written anywhere.
+1. **Direction:** remove the cause by changing the rule between two departments.
+2. **What we change:** record forwarded questions (from whom, basic or technical, time spent) for 4 weeks as evidence - **ourselves**, start now; propose an explicit boundary: the engagement department answers basic questions using the kit (first line), technical questions come to the team through intake and triage (second line), the engagement department runs the cohort and the team covers its technical part - **needs others**: the engagement department; raised by the **DG lead**; the **D&A lead** if the boundary must be set above both departments.
+3. **Mechanism:** the forwarding practice and the undefined duty boundary (pairs 23, 25).
+4. **Positive explanation (prediction, not tested):** an agreed boundary + a non-technical kit → basic questions stay at the first line → only technical questions reach the team → explanation load and urgent onboarding drop → more "done".
+5. **Reduces:** forwarded basic questions; the team's invisible work.
+6. **Adapts to:** the engagement department not going into technical details - accepted; the kit is written for non-technical staff.
+7. **Feasibility:** outside team authority; the DG lead (decides budget and staff) must raise it; preparation - 4 weeks of records; effect 1-3 months after an agreement; the department's staff need time to learn the kit.
+8. **Consequence-bearers:**
+
+| Who | What may happen |
+|---|---|
+| Engagement department | more work for its staff; may resist - frame it as a faster rollout, not as a transfer of blame |
+| New functions | a first answer from a non-technical person may be wrong - the kit needs a "when to forward" list |
+| DG lead | spends political capital on the conversation |
+| DG/DQ team | still maintains the kit and answers technical questions |
+| Management | sees the division of labour explicitly; may be asked to arbitrate |
+
+9. **Compatibility:** depends on 3 (the kit). Changes urgent arrivals and therefore output - would distort the check of 1b; record urgents separately; the agreement will most likely take effect after the 8-week window of 1b.
+10. **Check:** observe - forwarded questions per month, share of basic vs technical, explanation hours; compare with - the 4-week baseline recorded before the conversation; **threats** - rollout pace (normalise per new function); **solved** - basic questions ≤ 20 % of forwarded after 2 months; **revise** - an agreement exists but forwarding does not change → the rule is not enforced, take it to the D&A lead; **not enough data** - fewer than 10 forwarded questions in the window.
+11. **Conditions, stop, fallback, decision:** conditions - the DG lead is willing to raise it; baseline records exist; **early stop** - two or more complaints per month about wrong first-line answers → tighten the "when to forward" list; **fallback** - the team answers again, the kit stays; **decision** - the boundary is agreed between the heads of the two departments (DG lead and the engagement department head), the D&A lead if they disagree; the team does not decide it alone.
 
 ## Overall compatibility
 
