@@ -3,8 +3,9 @@ type: templates
 date: 2026-11-22
 course: R4.2:6, R4.2:Tasks2
 problem_card: problem-cards-r4.md, B-2
-status: v1.3 (checked against FPF Library C.28, OPS.16, CONSEQUENCE-BEARERS, C.11.DUA, OPS.10; snapshots 20261122T121956Z, 20261125T054841Z)
-hypotheses: hypotheses-case-queue-r4.md (R4.3:Tasks1)
+status: v1.4 (checked against FPF Library C.28, OPS.16, CONSEQUENCE-BEARERS, C.11.DUA, OPS.10, A.2.8, HCD.Reference:3; snapshots 20261122T121956Z, 20261125T054841Z)
+hypotheses: hypotheses-case-queue-r4.md (v1.1, R4.3:Tasks1)
+cause_effect: cause-effect-pairs-case-queue-r4.md (v1.2, R4.3:Tasks2)
 uncertainty: uncertainty-case-queue-r4.md (R4.2:Mod3)
 ---
 
